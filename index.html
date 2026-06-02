@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your First CRO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --dark:    #1A0F2E;
+      --dark2:   #2D1B4E;
+      --cream:   #F7F3EE;
+      --cream2:  #EDE8E0;
+      --white:   #FFFFFF;
+      --text:    #1A0F2E;
+      --muted:   #7A6E85;
+      --purple:  #552583;
+      --gold:    #FDB927;
+      --gold-dk: #C8900A;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--text); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 68px;
+      background: var(--dark); border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .logo { font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #fff; text-decoration: none; }
+    .logo em { font-style: normal; color: var(--gold); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,.55); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: #fff; }
+    .pill { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; border-radius: 999px; font-size: 13px; font-weight: 700; text-decoration: none; border: none; cursor: pointer; transition: all .2s; }
+    .pill-gold { background: var(--gold); color: var(--dark); }
+    .pill-gold:hover { background: var(--gold-dk); color: #fff; transform: translateY(-1px); }
+    .pill-outline { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.3); }
+    .pill-outline:hover { border-color: var(--gold); color: var(--gold); }
+    .pill-dark { background: var(--dark); color: #fff; }
+    .pill-dark:hover { background: var(--dark2); transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--dark);
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 0;
+      padding-top: 68px;
+      overflow: hidden;
+    }
+    .hero-left { padding: 80px 56px 80px 72px; }
+    .hero-kicker { font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; }
+    .hero h1 { font-size: clamp(44px, 5.5vw, 76px); font-weight: 900; line-height: 1.0; letter-spacing: -.03em; color: #fff; margin-bottom: 28px; }
+    .hero h1 em { font-style: normal; color: var(--gold); }
+    .hero-sub { font-size: 18px; color: rgba(255,255,255,.55); line-height: 1.75; margin-bottom: 44px; max-width: 480px; }
+    .hero-sub strong { color: var(--gold); font-weight: 700; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-right {
+      background: rgba(255,255,255,.04);
+      border-left: 1px solid rgba(255,255,255,.08);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 56px;
+      gap: 0;
+    }
+    .hero-right-label { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 32px; }
+    .trigger-row { display: flex; align-items: flex-start; gap: 16px; padding: 22px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .trigger-row:last-child { border-bottom: none; }
+    .t-check { width: 24px; height: 24px; border-radius: 50%; background: var(--gold); color: var(--dark); font-size: 11px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .t-text { font-size: 16px; font-weight: 600; color: rgba(255,255,255,.85); line-height: 1.4; }
+
+    /* ── SECTION BASE ── */
+    .sec-dark { background: var(--dark); color: #fff; }
+    .sec-cream { background: var(--cream); color: var(--text); }
+    .sec-cream2 { background: var(--cream2); color: var(--text); }
+    .wrap { max-width: 1160px; margin: 0 auto; padding: 112px 56px; }
+
+    /* ── KICKER ── */
+    .kicker { font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-dk); margin-bottom: 20px; }
+    .kicker-light { color: var(--gold); }
+
+    /* ── HOW WE WORK ── */
+    .how-split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .how-split h2 { font-size: clamp(32px, 4vw, 54px); font-weight: 900; line-height: 1.05; letter-spacing: -.03em; }
+    .how-body-copy p { font-size: 17px; color: rgba(255,255,255,.65); line-height: 1.85; margin-bottom: 20px; }
+    .how-body-copy p:last-child { margin-bottom: 0; }
+    .how-body-copy strong { color: #fff; font-weight: 600; }
+    .callout-strip { margin-top: 40px; border: 1px solid rgba(253,185,39,.3); border-radius: 12px; padding: 28px 32px; background: rgba(253,185,39,.05); }
+    .callout-strip p { font-size: 16px; color: rgba(255,255,255,.75); line-height: 1.75; }
+    .callout-strip strong { color: var(--gold); font-weight: 700; }
+    .ripple { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 36px; }
+    .rtag { padding: 7px 14px; border-radius: 99px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; border: 1px solid rgba(255,255,255,.18); color: rgba(255,255,255,.5); transition: all .2s; cursor: default; }
+    .rtag:hover { background: rgba(253,185,39,.1); border-color: var(--gold); color: var(--gold); }
+
+    /* ── STATS ROW ── */
+    .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--cream2); }
+    .stat-block { padding: 56px 40px; border-right: 1px solid var(--cream2); }
+    .stat-block:last-child { border-right: none; }
+    .stat-num { font-size: clamp(40px, 5vw, 64px); font-weight: 900; letter-spacing: -.03em; color: var(--gold-dk); line-height: 1; margin-bottom: 10px; }
+    .stat-label { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .stat-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* ── LEVERAGE ── */
+    .lev-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 72px; }
+    .lev-intro h2 { font-size: clamp(32px, 4vw, 52px); font-weight: 900; line-height: 1.05; letter-spacing: -.03em; }
+    .lev-intro p { font-size: 17px; color: var(--muted); line-height: 1.8; }
+    .lev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--cream2); border-radius: 16px; overflow: hidden; }
+    .lev-card { background: var(--white); padding: 36px 32px; transition: background .2s; }
+    .lev-card:hover { background: #FAF8FF; }
+    .lev-num { font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--purple); background: #F0EAFA; display: inline-block; padding: 3px 9px; border-radius: 4px; margin-bottom: 16px; }
+    .lev-card h3 { font-size: 17px; font-weight: 800; color: var(--text); margin-bottom: 20px; letter-spacing: -.01em; }
+    .lev-row-lbl { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-dk); margin-bottom: 4px; }
+    .lev-row-txt { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 14px; }
+    .lev-impact { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--cream2); font-size: 11px; font-weight: 800; color: var(--purple); letter-spacing: .05em; text-transform: uppercase; }
+    .lev-wide { grid-column: span 3; background: var(--dark); padding: 48px; display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: center; }
+    .lev-wide h3 { font-size: 22px; font-weight: 900; color: #fff; letter-spacing: -.02em; line-height: 1.2; }
+    .lev-wide h3 em { font-style: normal; color: var(--gold); }
+    .lev-wide p { font-size: 16px; color: rgba(255,255,255,.65); line-height: 1.8; }
+
+    /* ── ENGAGEMENT ── */
+    .eng-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    .eng-panel { padding: 80px 56px; }
+    .eng-panel:first-child { background: var(--purple); border-radius: 16px 0 0 16px; }
+    .eng-panel:last-child { background: var(--dark2); border-radius: 0 16px 16px 0; }
+    .eng-label { font-size: 16px; font-weight: 800; color: #fff; display: block; margin-bottom: 10px; }
+    .eng-desc { font-size: 14px; color: rgba(255,255,255,.55); line-height: 1.7; }
+
+    /* ── CTA ── */
+    .cta-wrap { background: var(--dark); display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; min-height: 480px; }
+    .cta-left { padding: 96px 64px; display: flex; flex-direction: column; justify-content: center; }
+    .cta-left h2 { font-size: clamp(36px, 4.5vw, 62px); font-weight: 900; line-height: 1.05; letter-spacing: -.03em; color: #fff; margin-bottom: 24px; }
+    .cta-left h2 em { font-style: normal; color: var(--gold); }
+    .cta-left p { font-size: 17px; color: rgba(255,255,255,.55); line-height: 1.8; margin-bottom: 40px; max-width: 440px; }
+    .cta-left strong { color: #fff; }
+    .cta-right { background: var(--gold); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 64px; text-align: center; }
+    .cta-right h3 { font-size: 28px; font-weight: 900; color: var(--dark); letter-spacing: -.02em; margin-bottom: 8px; }
+    .cta-right p { font-size: 16px; color: rgba(26,15,46,.65); margin-bottom: 32px; line-height: 1.6; }
+    .pill-dark-lg { display: inline-flex; align-items: center; gap: 8px; padding: 16px 36px; border-radius: 999px; font-size: 15px; font-weight: 800; background: var(--dark); color: #fff; text-decoration: none; transition: all .2s; }
+    .pill-dark-lg:hover { background: var(--dark2); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(26,15,46,.3); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--dark); padding: 28px 56px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.06); }
+    footer p { font-size: 12px; color: rgba(255,255,255,.3); }
+    footer a { font-size: 12px; color: rgba(255,255,255,.3); text-decoration: none; transition: color .2s; }
+    footer a:hover { color: var(--gold); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 80px 24px 48px; }
+      .hero-right { border-left: none; border-top: 1px solid rgba(255,255,255,.08); padding: 48px 24px; }
+      .wrap { padding: 72px 24px; }
+      .how-split, .lev-intro { grid-template-columns: 1fr; gap: 36px; }
+      .lev-grid { grid-template-columns: 1fr; }
+      .lev-wide { grid-column: span 1; grid-template-columns: 1fr; gap: 20px; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .stat-block { border-right: none; border-bottom: 1px solid var(--cream2); padding: 40px 24px; }
+      .eng-layout { grid-template-columns: 1fr; }
+      .eng-panel:first-child { border-radius: 16px 16px 0 0; }
+      .eng-panel:last-child { border-radius: 0 0 16px 16px; }
+      .eng-panel { padding: 48px 28px; }
+      .cta-wrap { grid-template-columns: 1fr; }
+      .cta-left { padding: 64px 24px; }
+      .cta-right { padding: 48px 24px; }
+      footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="logo">Your First <em>CRO</em></a>
+  <ul class="nav-links">
+    <li><a href="#how">How We Work</a></li>
+    <li><a href="#leverage">Our Impact</a></li>
+    <li><a href="#engage">Engagement</a></li>
+  </ul>
+  <a href="book.html" class="pill pill-gold">Book a call →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-kicker">GTM Infrastructure · Seed to Series B</div>
+    <h1>You raised.<br>You hired.<br><em>Who builds the GTM playbook?</em></h1>
+    <p class="hero-sub">The transition from founder-led to team-led GTM is the highest-leverage moment in a company's growth. <strong>Your First CRO</strong> builds the shared framework that carries the customer experience from early traction into scalable, repeatable growth.</p>
+    <div class="hero-actions">
+      <a href="book.html" class="pill pill-gold">Book a call →</a>
+      <a href="#how" class="pill pill-outline">How we work →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-label">You're in the right place if...</div>
+    <div class="trigger-row">
+      <div class="t-check">✓</div>
+      <span class="t-text">The business is transitioning from founder-led to team-led GTM</span>
+    </div>
+    <div class="trigger-row">
+      <div class="t-check">✓</div>
+      <span class="t-text">Need to hit revenue goals while still defining GTM playbooks</span>
+    </div>
+    <div class="trigger-row">
+      <div class="t-check">✓</div>
+      <span class="t-text">GTM functions have split into Sales and Success teams</span>
+    </div>
+    <div class="trigger-row">
+      <div class="t-check">✓</div>
+      <span class="t-text">Expansion is happening reactively, not systematically</span>
+    </div>
+    <div class="trigger-row">
+      <div class="t-check">✓</div>
+      <span class="t-text">Time-to-value differs from deal-to-deal</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section class="sec-dark" id="how">
+  <div class="wrap">
+    <div class="how-split">
+      <div>
+        <div class="kicker kicker-light">How we work</div>
+        <h2>We help B2B companies build revenue teams that scale what works.</h2>
+      </div>
+      <div class="how-body-copy">
+        <p>Every B2B company has a moment where what drove early traction needs to move from one person's head into a team's shared operating system: the customer relationships, the sales instincts, the product insight.</p>
+        <p>We embed alongside sales and success teams and build that system. We work with the team, translating what earned the first customers into the infrastructure both functions carry forward every day.</p>
+        <p>The result is a revenue team aligned on ICP, customer journey, and time to value. Operating from the same playbook, compounding as it grows.</p>
+        <div class="callout-strip">
+          <div class="kicker-light" style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">The compounding opportunity</div>
+          <p><strong>Your First CRO</strong> is the connective tissue between where the business started and where the GTM team is going. We build the shared revenue framework that every team will be embedded in, from day one.</p>
+        </div>
+        <div class="ripple">
+          <div class="rtag">Sales</div>
+          <div class="rtag">Customer Success</div>
+          <div class="rtag">Operations</div>
+          <div class="rtag">Product</div>
+          <div class="rtag">Engineering</div>
+          <div class="rtag">Investor Metrics</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="sec-cream">
+  <div class="stats-row">
+    <div class="stat-block">
+      <div class="stat-num">$2M+</div>
+      <div class="stat-label">The trigger stage</div>
+      <div class="stat-desc">The ARR range where founder-led GTM hits its ceiling and team-led needs to take over.</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">$400K</div>
+      <div class="stat-label">What a CRO costs</div>
+      <div class="stat-desc">We build what a CRO would build, at the right stage, without the full-time price tag.</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">60</div>
+      <div class="stat-label">Days that matter most</div>
+      <div class="stat-desc">The window between "closed" and "activated" is the highest-leverage moment in the customer lifecycle.</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">B2B</div>
+      <div class="stat-label">Only motion we run</div>
+      <div class="stat-desc">We go deep on one GTM motion. Seed to Series B. Not wide across every model.</div>
+    </div>
+  </div>
+</section>
+
+<!-- LEVERAGE -->
+<section class="sec-cream2" id="leverage">
+  <div class="wrap">
+    <div class="lev-intro">
+      <div>
+        <div class="kicker">Where we create leverage</div>
+        <h2>We've seen these patterns. Here's what we do.</h2>
+      </div>
+      <p>These are the moments where GTM infrastructure creates the most value: across revenue, operations, product, and engineering.</p>
+    </div>
+    <div class="lev-grid">
+      <div class="lev-card">
+        <div class="lev-num">01 · Messaging</div>
+        <h3>Messaging Alignment</h3>
+        <div class="lev-row-lbl">What we see</div>
+        <div class="lev-row-txt">Sales pitches multiple use cases. Success only focuses on one.</div>
+        <div class="lev-row-lbl">What we do</div>
+        <div class="lev-row-txt">Build shared GTM messaging so teams are aligned from first pitch, to adoption, to expansion.</div>
+        <div class="lev-impact">Speed up time-to-value · Increased expansion ARR</div>
+      </div>
+      <div class="lev-card">
+        <div class="lev-num">02 · Journey</div>
+        <h3>Customer Journey Design</h3>
+        <div class="lev-row-lbl">What we see</div>
+        <div class="lev-row-txt">Reactive calls and strategies based on customer adoption, with no shared playbook between teams.</div>
+        <div class="lev-row-lbl">What we do</div>
+        <div class="lev-row-txt">Create proactive GTM playbooks to guide the customer journey from land to expand.</div>
+        <div class="lev-impact">LTV · Expansion revenue · CS efficiency</div>
+      </div>
+      <div class="lev-card">
+        <div class="lev-num">03 · Time to Value</div>
+        <h3>Activation Ownership</h3>
+        <div class="lev-row-lbl">What we see</div>
+        <div class="lev-row-txt">No one owns the 60 days between "closed" and "activated."</div>
+        <div class="lev-row-lbl">What we do</div>
+        <div class="lev-row-txt">Build a shared time-to-value framework from close to expansion.</div>
+        <div class="lev-impact">Adoption · Expansion · Product signal</div>
+      </div>
+      <div class="lev-card">
+        <div class="lev-num">04 · ICP</div>
+        <h3>ICP Discipline</h3>
+        <div class="lev-row-lbl">What we see</div>
+        <div class="lev-row-txt">Revenue pressure expands the target. Every function absorbs the cost.</div>
+        <div class="lev-row-lbl">What we do</div>
+        <div class="lev-row-txt">Anchor ICP to what the product was built to deliver, and defend it.</div>
+        <div class="lev-impact">Roadmap velocity · Core retention</div>
+      </div>
+      <div class="lev-card">
+        <div class="lev-num">05 · Operations</div>
+        <h3>Roles &amp; Responsibilities</h3>
+        <div class="lev-row-lbl">What we see</div>
+        <div class="lev-row-txt">Sales and success roles grow as a reaction to customer demands, creating misalignment between skill and GTM ownership.</div>
+        <div class="lev-row-lbl">What we do</div>
+        <div class="lev-row-txt">Anchor roles and responsibilities to the customer journey so every role has clear GTM ownership.</div>
+        <div class="lev-impact">Accountability · Team efficiency · Customer experience</div>
+      </div>
+      <div class="lev-card">
+        <div class="lev-num">06 · Product</div>
+        <h3>Product Signal</h3>
+        <div class="lev-row-lbl">What we see</div>
+        <div class="lev-row-txt">Product gets competing feature requests. Roadmap shaped by whoever argued last.</div>
+        <div class="lev-row-lbl">What we do</div>
+        <div class="lev-row-txt">Build a shared customer evidence layer. Signal over advocacy.</div>
+        <div class="lev-impact">Roadmap velocity · Product fit</div>
+      </div>
+      <div class="lev-wide">
+        <h3>The <em>compounding</em> opportunity</h3>
+        <p>The longer the two functions operate without a shared framework, the more expensive alignment becomes. We build it while the team is small, so it compounds as it grows.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENGAGEMENT -->
+<section class="sec-cream" id="engage">
+  <div class="wrap">
+    <div class="kicker" style="margin-bottom:40px;">How we engage</div>
+    <div class="eng-layout">
+      <div class="eng-panel">
+        <span class="eng-label" style="font-size:22px;line-height:1.2;display:block;margin-bottom:20px;">Project-based.<br>Flat fee.<br>Deliverable-driven.</span>
+        <span class="eng-desc">Every engagement is scoped and quoted as a flat fee — never by the hour. Work starts when scope is agreed. Work ends when the deliverable is delivered. First project always includes discovery at no additional cost.</span>
+      </div>
+      <div class="eng-panel">
+        <span class="eng-label" style="display:block;margin-bottom:28px;">Pricing is based on:</span>
+        <div style="display:flex;flex-direction:column;gap:20px;">
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <span style="min-width:26px;height:26px;border-radius:50%;background:var(--gold);color:var(--dark);font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">1</span>
+            <div>
+              <div style="font-size:14px;font-weight:800;color:#fff;margin-bottom:3px;">Meetings per week</div>
+              <div style="font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;">How many working sessions the project requires — typically 1–2 per week.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <span style="min-width:26px;height:26px;border-radius:50%;background:var(--gold);color:var(--dark);font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">2</span>
+            <div>
+              <div style="font-size:14px;font-weight:800;color:#fff;margin-bottom:3px;">Deliverable scope</div>
+              <div style="font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;">Customer Journey Framework only vs. full build with roles, comp, and messaging.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <span style="min-width:26px;height:26px;border-radius:50%;background:var(--gold);color:var(--dark);font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">3</span>
+            <div>
+              <div style="font-size:14px;font-weight:800;color:#fff;margin-bottom:3px;">GTM functions involved</div>
+              <div style="font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;">Sales only vs. sales, CS, and marketing — scope grows with the number of teams.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <span style="min-width:26px;height:26px;border-radius:50%;background:var(--gold);color:var(--dark);font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">4</span>
+            <div>
+              <div style="font-size:14px;font-weight:800;color:#fff;margin-bottom:3px;">Delivery timeline</div>
+              <div style="font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;">30, 45, or 60-day windows — compressed timelines are priced accordingly.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-wrap">
+    <div class="cta-left">
+      <div class="kicker kicker-light" style="margin-bottom:20px;">Ready to build</div>
+      <h2>Ready to build the <em>playbook?</em></h2>
+      <p>The transition from founder-led to team-led GTM is the moment. <strong>We build the connective tissue</strong>, when the investment is smallest and the compounding is greatest.</p>
+      <a href="book.html" class="pill pill-gold" style="font-size:15px;padding:14px 32px;align-self:flex-start;">Book a discovery call →</a>
+    </div>
+    <div class="cta-right">
+      <h3>Start the conversation.</h3>
+      <p>No pitch deck. No long intake form. Just a direct conversation about where the GTM team is and what needs to be built.</p>
+      <a href="book.html" class="pill-dark-lg">Book a discovery call →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Your First CRO · B2B · Seed to Series B</p>
+  <a href="book.html">Book a discovery call →</a>
+</footer>
+
+</body>
+</html>
