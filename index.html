@@ -23,7 +23,7 @@
       --gold-dk: #C8900A;
     }
     html { scroll-behavior: smooth; }
-    body { background: var(--offwhite); color: var(--text); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+    body { background: var(--white); color: var(--text); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
 
     /* ── NAV ── */
     nav {
@@ -92,7 +92,7 @@
     /* ── SECTION HELPERS ── */
     .sec-dark { background: var(--dark); color: #fff; }
     .sec-white { background: var(--white); }
-    .sec-offwhite { background: var(--offwhite); }
+    .sec-offwhite { background: var(--white); }
     .wrap { max-width: 1160px; margin: 0 auto; padding: 96px 56px; }
     .wrap-sm { max-width: 820px; margin: 0 auto; padding: 96px 56px; }
     .section-kicker { font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-dk); margin-bottom: 16px; }
@@ -331,40 +331,37 @@
 </section>
 
 <!-- LAND & EXPAND FUNNEL -->
-<section class="sec-dark" id="funnel">
+<section class="sec-white" id="funnel">
   <div class="wrap">
-    <div class="funnel-header">
-      <div class="section-kicker section-kicker-light">Land & Expand</div>
-      <h2 style="font-size:clamp(28px,3.5vw,46px);font-weight:900;line-height:1.05;letter-spacing:-.03em;color:#fff;margin-top:12px;">From <em style="font-style:normal;color:var(--gold);">land</em> to expand —<br>built as a system, not a hope.</h2>
-    </div>
-    <svg viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
-      <!-- LAND triangle — mid-navy, clearly distinct from dark bg -->
-      <polygon points="0,20 448,140 0,260" fill="#2D3A6B"/>
-      <!-- EXPAND shape — full gold, solid -->
-      <polygon points="452,140 900,20 900,260" fill="#FDB927"/>
-      <!-- Center divider -->
-      <line x1="450" y1="15" x2="450" y2="265" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="5,5"/>
-      <!-- Predictable expansion line — white on gold side for contrast -->
-      <path d="M 452,140 Q 620,55 900,32" stroke="#fff" stroke-width="2.5" fill="none" opacity="0.9"/>
-      <!-- Reactive expansion line — dark on gold side -->
-      <path d="M 452,140 Q 640,130 900,118" stroke="rgba(20,24,40,0.45)" stroke-width="2" fill="none" stroke-dasharray="8,6"/>
-      <!-- LAND label — bright white -->
-      <text x="28" y="48" font-family="Inter,sans-serif" font-size="11" font-weight="800" fill="rgba(255,255,255,0.85)" letter-spacing="3">LAND</text>
-      <!-- EXPAND label — dark on gold -->
-      <text x="808" y="48" font-family="Inter,sans-serif" font-size="11" font-weight="800" fill="#141828" letter-spacing="3">EXPAND</text>
-      <!-- Stage labels LAND — bright -->
-      <text x="52"  y="256" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="rgba(255,255,255,0.75)" letter-spacing="1.5" text-anchor="middle">PROSPECT</text>
-      <text x="162" y="256" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="rgba(255,255,255,0.75)" letter-spacing="1.5" text-anchor="middle">QUALIFY</text>
-      <text x="278" y="256" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="rgba(255,255,255,0.75)" letter-spacing="1.5" text-anchor="middle">PROPOSE</text>
-      <text x="388" y="256" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="rgba(255,255,255,0.75)" letter-spacing="1.5" text-anchor="middle">CLOSE</text>
-      <!-- Stage labels EXPAND — dark on gold -->
-      <text x="528" y="256" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="rgba(20,24,40,0.85)" letter-spacing="1.5" text-anchor="middle">ONBOARD</text>
-      <text x="672" y="256" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="rgba(20,24,40,0.85)" letter-spacing="1.5" text-anchor="middle">RETAIN</text>
-      <text x="820" y="256" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="rgba(20,24,40,0.85)" letter-spacing="1.5" text-anchor="middle">EXPAND</text>
-    </svg>
-    <div class="funnel-legend">
-      <div class="legend-item"><div class="legend-line solid"></div>Predictable expansion</div>
-      <div class="legend-item"><div class="legend-line dashed"></div>Reactive expansion</div>
+    <div class="section-kicker" style="margin-bottom:12px;">Land & Expand</div>
+    <div style="background:var(--white);border-left:3px solid var(--gold);padding:20px 20px 14px;border-radius:0 4px 4px 0;border:1px solid var(--border);border-left:3px solid var(--gold);">
+      <svg viewBox="0 0 728 222" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+        <defs>
+          <style>
+            .f-head { font-family: Inter, sans-serif; font-size: 9px; font-weight: 800; letter-spacing: 2px; }
+            .f-stage { font-family: Inter, sans-serif; font-size: 7.5px; font-weight: 700; letter-spacing: 1.2px; }
+            .f-cap { font-family: Inter, sans-serif; font-size: 10px; font-weight: 600; }
+          </style>
+        </defs>
+        <text x="182" y="13" text-anchor="middle" class="f-head" fill="#7A6E85">LAND</text>
+        <text x="546" y="13" text-anchor="middle" class="f-head" fill="#7A6E85">EXPAND</text>
+        <path d="M 0,20 C 210,20 345,104 364,112 C 345,120 210,204 0,204 Z" fill="#1A0F2E"/>
+        <path d="M 364,112 C 383,104 518,20 728,20 L 728,204 C 518,204 383,120 364,112 Z" fill="#FDB927" opacity="0.88"/>
+        <path d="M 364,112 C 380,104 404,88 438,82 C 468,76 492,90 522,74 C 550,62 580,70 612,64 C 648,60 688,66 728,68" fill="none" stroke="#552583" stroke-width="2.5" stroke-dasharray="7,5" opacity="0.75"/>
+        <path d="M 364,112 C 380,120 404,136 438,142 C 468,148 492,134 522,150 C 550,162 580,154 612,160 C 648,164 688,158 728,156" fill="none" stroke="#552583" stroke-width="2.5" stroke-dasharray="7,5" opacity="0.75"/>
+        <line x1="364" y1="14" x2="364" y2="204" stroke="rgba(247,243,238,0.45)" stroke-width="1.5"/>
+        <text x="50"  y="116" text-anchor="middle" class="f-stage" fill="rgba(255,255,255,0.45)">PROSPECT</text>
+        <text x="152" y="116" text-anchor="middle" class="f-stage" fill="rgba(255,255,255,0.45)">QUALIFY</text>
+        <text x="254" y="116" text-anchor="middle" class="f-stage" fill="rgba(255,255,255,0.45)">PROPOSE</text>
+        <text x="340" y="116" text-anchor="middle" class="f-stage" fill="rgba(255,255,255,0.38)" font-size="6.5">CLOSE</text>
+        <text x="412" y="116" text-anchor="middle" class="f-stage" fill="rgba(26,15,46,0.5)">ONBOARD</text>
+        <text x="540" y="116" text-anchor="middle" class="f-stage" fill="rgba(26,15,46,0.5)">RETAIN</text>
+        <text x="660" y="116" text-anchor="middle" class="f-stage" fill="rgba(26,15,46,0.5)">EXPAND</text>
+        <rect x="178" y="212" width="9" height="9" fill="#FDB927" rx="1.5"/>
+        <text x="193" y="220" class="f-cap" fill="#1A0F2E">Predictable expansion</text>
+        <line x1="346" y1="216" x2="366" y2="216" stroke="#552583" stroke-width="2" stroke-dasharray="5,4"/>
+        <text x="372" y="220" class="f-cap" fill="#1A0F2E">Reactive expansion</text>
+      </svg>
     </div>
   </div>
 </section>
