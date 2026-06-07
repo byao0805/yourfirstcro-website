@@ -1,0 +1,619 @@
+/*
+  mobile.css — shared responsive overrides for yourfirstcro.com
+  Applied to every page. Desktop styles live in each page's <style> block.
+  Mobile-first breakpoints: 375 / 768 / 1024
+*/
+
+/* ─── GLOBAL TOUCH OPTIMIZATION ─────────────────────────────── */
+a, button, [role="button"] {
+  touch-action: manipulation; /* kills 300ms tap delay */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ─── NAV ────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  nav {
+    padding: 0 20px;
+    height: 60px;
+  }
+  .nav-links {
+    display: none; /* hamburger TODO - for now logo + CTA only */
+  }
+  .logo {
+    font-size: 12px;
+  }
+  /* CTA pill in nav — make it easier to tap */
+  nav .pill {
+    padding: 10px 18px;
+    font-size: 12px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* ─── HERO (index) ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 60px;
+  }
+  .hero-left {
+    padding: 52px 24px 36px;
+  }
+  .hero h1 {
+    font-size: 38px;
+    letter-spacing: -.025em;
+    margin-bottom: 20px;
+  }
+  .hero-sub {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+  .hero-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hero-actions .pill {
+    min-height: 52px;
+    font-size: 15px;
+    justify-content: center;
+  }
+  .hero-right {
+    border-left: none;
+    border-top: 1px solid rgba(255,255,255,.07);
+    padding: 36px 24px 48px;
+  }
+  .hero-right-label {
+    font-size: 12px;
+    margin-bottom: 24px;
+  }
+  .trigger-row {
+    padding: 16px 0;
+    gap: 14px;
+  }
+  .t-text {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+}
+
+/* ─── TICKER ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .ticker-item {
+    font-size: 11px;
+    padding: 0 20px;
+  }
+}
+
+/* ─── STATS ROW ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .stats-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  .stat-block {
+    padding: 32px 20px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-block:nth-child(odd) {
+    border-right: 1px solid var(--border);
+  }
+  .stat-block:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+  .stat-num {
+    font-size: 36px;
+    margin-bottom: 8px;
+  }
+  .stat-label {
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+  .stat-desc {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+}
+
+/* ─── SECTION WRAPPERS ───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .wrap, .wrap-sm {
+    padding: 56px 20px;
+  }
+  .section-kicker {
+    font-size: 11px;
+    margin-bottom: 12px;
+  }
+  .section-h2 {
+    font-size: 28px;
+  }
+}
+
+/* ─── PROBLEM SECTION ────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .problem-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .problem-card {
+    padding: 24px 20px;
+  }
+  .problem-card p {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+}
+
+/* ─── FUNNEL ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .funnel-container {
+    overflow: hidden;
+    padding: 16px 12px 12px;
+  }
+  .funnel-svg {
+    transform: scale(1.55);
+    transform-origin: center center;
+    margin: 16px 0;
+  }
+}
+
+/* ─── LEVERAGE GRID (solutions page) ────────────────────────── */
+@media (max-width: 768px) {
+  .lev-grid {
+    grid-template-columns: 1fr;
+  }
+  .lev-intro {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .lev-intro h2 {
+    font-size: 26px;
+  }
+  .lev-intro p {
+    font-size: 15px;
+  }
+  .lev-card {
+    padding: 28px 24px;
+  }
+  .lev-num {
+    font-size: 10px;
+  }
+  .lev-card h3 {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+  .lev-row-lbl {
+    font-size: 10px;
+  }
+  .lev-row-txt {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .lev-impact {
+    font-size: 11px;
+  }
+}
+
+/* ─── ENGAGEMENT GRID ────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .eng-grid {
+    grid-template-columns: 1fr;
+  }
+  .eng-card {
+    padding: 36px 24px;
+  }
+  .eng-card h3 {
+    font-size: 28px;
+  }
+  .eng-card p {
+    font-size: 15px;
+  }
+  .eng-fee {
+    font-size: 14px;
+  }
+  .eng-item {
+    font-size: 14px;
+  }
+}
+
+/* ─── HOW IT WORKS ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .how-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .how-h2 {
+    font-size: 24px;
+  }
+  .how-sub {
+    font-size: 15px;
+  }
+  .step-body h4 {
+    font-size: 15px;
+  }
+  .step-body p {
+    font-size: 14px;
+  }
+}
+
+/* ─── PAGE HERO (sub-pages) ──────────────────────────────────── */
+@media (max-width: 768px) {
+  .page-hero {
+    min-height: auto;
+  }
+  .page-hero-inner {
+    padding: 56px 20px 48px;
+  }
+  .page-kicker {
+    font-size: 11px;
+    margin-bottom: 14px;
+  }
+  .page-hero h1 {
+    font-size: 34px;
+    letter-spacing: -.025em;
+    margin-bottom: 20px;
+    max-width: none;
+  }
+  .page-hero-sub {
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: none;
+    margin-bottom: 32px;
+  }
+  .hero-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hero-actions .pill,
+  .hero-actions .pill-gold,
+  .hero-actions .pill-outline-light {
+    min-height: 52px;
+    font-size: 15px;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    border-radius: 999px;
+  }
+}
+
+/* ─── MOMENT / SIGNAL / PHASE GRIDS ─────────────────────────── */
+@media (max-width: 768px) {
+  .moment-grid,
+  .signal-grid,
+  .phase-grid {
+    grid-template-columns: 1fr;
+  }
+  .moment-card,
+  .signal-card,
+  .phase-card {
+    padding: 28px 24px;
+  }
+  .moment-card h3,
+  .signal-card h3,
+  .phase-card h3 {
+    font-size: 16px;
+  }
+  .moment-card p,
+  .signal-card p,
+  .phase-card p {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  .moment-icon {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+}
+
+/* ─── BUILD / HELP LISTS ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .build-grid,
+  .help-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .build-h2,
+  .help-h2 {
+    font-size: 24px;
+  }
+  .build-sub,
+  .help-sub {
+    font-size: 15px;
+  }
+  .build-item,
+  .help-item {
+    padding: 20px 20px;
+    gap: 14px;
+  }
+  .build-text h4,
+  .help-text h4 {
+    font-size: 14px;
+  }
+  .build-text p,
+  .help-text p {
+    font-size: 13px;
+  }
+}
+
+/* ─── STATS ROW (investors) ──────────────────────────────────── */
+@media (max-width: 768px) {
+  .stats-row.dark-stats {
+    grid-template-columns: 1fr;
+  }
+  .stats-row.dark-stats .stat-block {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    padding: 36px 24px;
+  }
+  .stats-row.dark-stats .stat-block:last-child {
+    border-bottom: none;
+  }
+}
+
+/* ─── ABOUT GRID ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .about-bio p {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  .about-name {
+    font-size: 22px;
+  }
+  .about-email {
+    font-size: 13px;
+    margin-bottom: 28px;
+  }
+  .about-sidebar {
+    padding: 28px 24px;
+  }
+  .about-row-value {
+    font-size: 14px;
+  }
+}
+
+/* ─── WHY GRID (about page) ──────────────────────────────────── */
+@media (max-width: 768px) {
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .why-h2 {
+    font-size: 24px;
+    margin-bottom: 14px;
+  }
+  .why-body p {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+  .why-card {
+    padding: 24px 20px;
+  }
+  .why-card p {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+}
+
+/* ─── QUOTE BLOCK ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .quote-block {
+    padding: 36px 24px;
+    border-radius: 12px;
+  }
+  .quote-text {
+    font-size: 18px;
+    line-height: 1.55;
+    margin-bottom: 20px;
+  }
+  .quote-attr {
+    font-size: 13px;
+  }
+}
+
+/* ─── DIFF CARD ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .diff-card {
+    padding: 24px 20px;
+  }
+  .diff-card p {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+}
+
+/* ─── CTA SECTION ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .cta-wrap {
+    padding: 64px 20px;
+  }
+  .cta-inner h2 {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+  .cta-inner p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+  .cta-inner .pill,
+  .cta-inner .pill-gold {
+    min-height: 52px;
+    font-size: 15px;
+    padding: 14px 28px;
+  }
+}
+
+/* ─── FOOTER ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    padding: 32px 20px;
+  }
+  footer p {
+    font-size: 13px;
+    color: rgba(255,255,255,.4);
+  }
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 20px;
+  }
+  .footer-links a {
+    font-size: 13px;
+    color: rgba(255,255,255,.4);
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* ─── BOOK PAGE ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .page-wrap {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 40px 20px 72px;
+  }
+  .form-card {
+    padding: 28px 20px;
+  }
+  .left h1 {
+    font-size: 30px;
+  }
+  .left-body {
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+  .expect-text {
+    font-size: 14px;
+  }
+  .field label {
+    font-size: 11px;
+  }
+  .field input,
+  .field textarea,
+  .field select {
+    font-size: 16px; /* prevent iOS zoom on focus */
+    min-height: 52px;
+  }
+  .field textarea {
+    min-height: 120px;
+  }
+  .submit-btn {
+    min-height: 52px;
+    font-size: 15px;
+  }
+}
+
+/* ─── INVESTORS STATS (dark bg, no .dark-stats class) ───────── */
+@media (max-width: 768px) {
+  .sec-offwhite .stats-row {
+    grid-template-columns: 1fr;
+    border-radius: 12px;
+  }
+  .sec-offwhite .stat-block {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    padding: 36px 24px;
+  }
+  .sec-offwhite .stat-block:last-child {
+    border-bottom: none;
+  }
+}
+
+/* ─── GLOBAL PILL TOUCH TARGETS ──────────────────────────────── */
+@media (max-width: 768px) {
+  .pill,
+  .pill-gold,
+  .pill-outline,
+  .pill-outline-light {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    touch-action: manipulation;
+  }
+}
+
+/* ─── MOBILE HAMBURGER NAV ───────────────────────────────────── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  touch-action: manipulation;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: rgba(255,255,255,.7);
+  border-radius: 2px;
+  transition: all .25s ease;
+}
+
+/* Mobile drawer */
+.nav-drawer {
+  display: none;
+  position: fixed;
+  top: 60px;
+  left: 0; right: 0;
+  background: #0E1220;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  z-index: 99;
+  padding: 16px 20px 24px;
+  transform: translateY(-8px);
+  opacity: 0;
+  transition: all .25s ease;
+  pointer-events: none;
+}
+.nav-drawer.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+.nav-drawer a {
+  display: block;
+  padding: 14px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255,255,255,.65);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  transition: color .15s;
+}
+.nav-drawer a:last-child {
+  border-bottom: none;
+  margin-top: 8px;
+  color: var(--gold);
+  font-weight: 700;
+}
+.nav-drawer a:hover { color: #fff; }
+
+/* Hamburger open state */
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 768px) {
+  .nav-hamburger { display: flex; }
+  nav .pill-gold { display: none; } /* replaced by drawer CTA */
+  .nav-drawer { display: block; }
+}
