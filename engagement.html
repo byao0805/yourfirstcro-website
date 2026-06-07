@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engagement & Pricing — Your First CRO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --dark:    #141828;
+      --dark2:   #1C2240;
+      --white:   #FFFFFF;
+      --offwhite:#F8F8FA;
+      --text:    #141828;
+      --muted:   #6B7280;
+      --border:  #E4E6EF;
+      --gold:    #FDB927;
+      --gold-dk: #C8900A;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--text); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+
+    /* -- NAV -- */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 68px;
+      background: var(--dark); border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .logo { font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #fff; text-decoration: none; }
+    .logo em { font-style: normal; color: var(--gold); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,.5); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+    .pill { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; border-radius: 999px; font-size: 13px; font-weight: 700; text-decoration: none; transition: all .2s; }
+    .pill-gold { background: var(--gold); color: var(--dark); }
+    .pill-gold:hover { background: var(--gold-dk); color: #fff; transform: translateY(-1px); }
+
+    /* -- PAGE HERO -- */
+    .page-hero { background: var(--dark); padding-top: 68px; }
+    .page-hero-inner { max-width: 1160px; margin: 0 auto; padding: 80px 56px 72px; }
+    .page-kicker { font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .page-hero h1 { font-size: clamp(38px, 5vw, 68px); font-weight: 900; line-height: 1.0; letter-spacing: -.03em; color: #fff; margin-bottom: 24px; }
+    .page-hero h1 em { font-style: normal; color: var(--gold); }
+    .page-hero-sub { font-size: 18px; color: rgba(255,255,255,.5); line-height: 1.75; max-width: 580px; }
+
+    /* -- SECTION -- */
+    .wrap { max-width: 1160px; margin: 0 auto; padding: 96px 56px; }
+    .section-kicker { font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-dk); margin-bottom: 16px; }
+
+    /* -- ENGAGEMENT GRID -- */
+    .eng-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); border-radius: 16px; overflow: hidden; margin-bottom: 64px; }
+    .eng-card { background: var(--white); padding: 48px 40px; }
+    .eng-card.featured { background: var(--dark); }
+    .eng-phase { font-size: 9px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    .eng-card.featured .eng-phase { color: var(--gold); }
+    .eng-card h3 { font-size: 36px; font-weight: 900; color: var(--text); letter-spacing: -.03em; margin-bottom: 16px; }
+    .eng-card.featured h3 { color: #fff; }
+    .eng-card p { font-size: 15px; color: var(--muted); line-height: 1.75; margin-bottom: 28px; }
+    .eng-card.featured p { color: rgba(255,255,255,.55); }
+    .eng-fee { font-size: 14px; font-weight: 800; color: var(--gold-dk); }
+    .eng-card.featured .eng-fee { color: var(--gold); }
+    .eng-includes { margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--border); }
+    .eng-card.featured .eng-includes { border-top-color: rgba(255,255,255,.1); }
+    .eng-includes-label { font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+    .eng-card.featured .eng-includes-label { color: rgba(255,255,255,.35); }
+    .eng-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; font-size: 13px; color: var(--muted); line-height: 1.5; }
+    .eng-card.featured .eng-item { color: rgba(255,255,255,.55); }
+    .eng-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 6px; }
+
+    /* -- HOW IT WORKS -- */
+    .how-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .how-h2 { font-size: clamp(28px, 3.5vw, 44px); font-weight: 900; line-height: 1.05; letter-spacing: -.03em; margin-bottom: 16px; }
+    .how-sub { font-size: 16px; color: var(--muted); line-height: 1.8; }
+    .how-steps { display: flex; flex-direction: column; gap: 28px; }
+    .how-step { display: flex; gap: 20px; }
+    .step-num { width: 36px; height: 36px; border-radius: 50%; background: var(--gold); color: var(--dark); font-size: 13px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .step-body h4 { font-size: 16px; font-weight: 800; color: var(--text); margin-bottom: 6px; }
+    .step-body p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+    /* -- CTA -- */
+    .cta-wrap { background: var(--dark); display: flex; align-items: center; min-height: 320px; padding: 80px 72px; }
+    .cta-inner { max-width: 700px; }
+    .cta-inner h2 { font-size: clamp(28px, 3.5vw, 48px); font-weight: 900; line-height: 1.05; letter-spacing: -.03em; color: #fff; margin-bottom: 16px; }
+    .cta-inner h2 em { font-style: normal; color: var(--gold); }
+    .cta-inner p { font-size: 17px; color: rgba(255,255,255,.5); line-height: 1.8; margin-bottom: 32px; max-width: 500px; }
+    .section-kicker-light { color: var(--gold); }
+
+    /* -- FOOTER -- */
+    footer { background: var(--dark); padding: 28px 56px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.06); }
+    footer p { font-size: 12px; color: rgba(255,255,255,.28); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,.28); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* -- MOBILE -- */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .page-hero-inner, .wrap { padding: 56px 24px; }
+      .eng-grid { grid-template-columns: 1fr; }
+      .how-grid { grid-template-columns: 1fr; gap: 40px; }
+      .cta-wrap { padding: 56px 24px; }
+      footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px; }
+      .footer-links { flex-direction: column; gap: 8px; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="logo">Your First <em>CRO</em></a>
+  <ul class="nav-links">
+    <li><a href="solutions.html">Solutions</a></li>
+    <li><a href="engagement.html" class="active">Engagement</a></li>
+    <li><a href="founders.html">Founders</a></li>
+    <li><a href="gtm-leaders.html">GTM Leaders</a></li>
+    <li><a href="investors.html">Investors</a></li>
+    <li><a href="/#about">About</a></li>
+  </ul>
+  <a href="book.html" class="pill pill-gold">Book a call →</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-kicker">Engagement & Pricing</div>
+    <h1>How we <em>work together.</em></h1>
+    <p class="page-hero-sub">Every engagement starts with a scoped project and a clear deliverable. You know what you're getting, what it costs, and when you'll have it - before anything starts.</p>
+  </div>
+</div>
+
+<!-- ENGAGEMENT TIERS -->
+<section>
+  <div class="wrap">
+    <div class="section-kicker" style="margin-bottom:40px;">Three ways to engage</div>
+    <div class="eng-grid">
+      <div class="eng-card featured">
+        <div class="eng-phase">Where most start</div>
+        <h3>Build</h3>
+        <p>A scoped project with a specific deliverable and a fixed deadline. You know exactly what you're getting and what it costs before anything starts. No retainer required to begin.</p>
+        <div class="eng-fee">Flat project fee</div>
+        <div class="eng-includes">
+          <div class="eng-includes-label">Typical deliverables</div>
+          <div class="eng-item"><div class="eng-dot"></div>Customer journey framework</div>
+          <div class="eng-item"><div class="eng-dot"></div>GTM roles & responsibilities</div>
+          <div class="eng-item"><div class="eng-dot"></div>Expansion playbook</div>
+          <div class="eng-item"><div class="eng-dot"></div>CRM architecture &amp; data model</div>
+          <div class="eng-item"><div class="eng-dot"></div>Revenue messaging system</div>
+        </div>
+      </div>
+      <div class="eng-card">
+        <div class="eng-phase">Once it's built</div>
+        <h3>Deploy</h3>
+        <p>We stay embedded to implement and operationalize the system with your team - getting it running in the real world with real people, not just living in a doc.</p>
+        <div class="eng-fee">3-month minimum retainer</div>
+        <div class="eng-includes">
+          <div class="eng-includes-label">What this covers</div>
+          <div class="eng-item"><div class="eng-dot"></div>Team enablement & training</div>
+          <div class="eng-item"><div class="eng-dot"></div>CRM buildout & configuration</div>
+          <div class="eng-item"><div class="eng-dot"></div>Playbook implementation</div>
+          <div class="eng-item"><div class="eng-dot"></div>Weekly check-ins & iteration</div>
+        </div>
+      </div>
+      <div class="eng-card">
+        <div class="eng-phase">Long-term</div>
+        <h3>Iterate</h3>
+        <p>An ongoing revenue partnership - available for strategic decisions, account planning, GTM refinement, and building the next layer as the business keeps growing.</p>
+        <div class="eng-fee">Ongoing retainer · Scope defined post-project</div>
+        <div class="eng-includes">
+          <div class="eng-includes-label">What this covers</div>
+          <div class="eng-item"><div class="eng-dot"></div>Strategic advisory access</div>
+          <div class="eng-item"><div class="eng-dot"></div>Account planning support</div>
+          <div class="eng-item"><div class="eng-dot"></div>GTM refinement as you scale</div>
+          <div class="eng-item"><div class="eng-dot"></div>Next-phase infrastructure builds</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="how-grid">
+      <div>
+        <div class="section-kicker" style="margin-bottom:16px;">How it starts</div>
+        <h2 class="how-h2">A scoped project, every time.</h2>
+        <p class="how-sub">We start with a Build engagement so both sides know exactly what's being built, what it costs, and what success looks like. The Deploy and Iterate phases come after - once there's something real to work with.</p>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>30-minute consultation</h4>
+            <p>We talk through where your GTM system stands, where the gaps are, and which deliverable creates the most leverage right now.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Project scoped & priced</h4>
+            <p>You get a clear scope - one deliverable, one timeline, one flat fee. No surprises. You decide whether to move forward.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Build begins</h4>
+            <p>We work closely with your team over 30-60 days to build the deliverable. You see progress throughout - this isn't a disappearing act.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>Your team owns it</h4>
+            <p>Every deliverable is built to live inside your team - in your CRM, your docs, your process. We hand it off and you keep it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="cta-wrap">
+    <div class="cta-inner">
+      <div class="section-kicker section-kicker-light" style="margin-bottom:20px;">Ready to scope something</div>
+      <h2>Start with a <em>30-minute call.</em></h2>
+      <p>We'll walk through what you're building, where the biggest leverage is, and what a first project would look like. No pitch deck required.</p>
+      <a href="book.html" class="pill pill-gold" style="font-size:15px;padding:14px 32px;">Book a free consultation →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Your First CRO · Revenue infrastructure for businesses built to last.</p>
+  <div class="footer-links">
+    <a href="solutions.html">Solutions</a>
+    <a href="engagement.html">Engagement</a>
+    <a href="founders.html">Founders</a>
+    <a href="gtm-leaders.html">GTM Leaders</a>
+    <a href="investors.html">Investors</a>
+    <a href="book.html">Book a call →</a>
+  </div>
+</footer>
+
+</body>
+</html>

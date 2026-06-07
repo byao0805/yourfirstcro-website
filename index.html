@@ -25,7 +25,7 @@
     html { scroll-behavior: smooth; }
     body { background: var(--white); color: var(--text); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
 
-    /* ── NAV ── */
+    /* -- NAV -- */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
@@ -34,7 +34,7 @@
     }
     .logo { font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #fff; text-decoration: none; }
     .logo em { font-style: normal; color: var(--gold); }
-    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
     .nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,.5); text-decoration: none; transition: color .2s; }
     .nav-links a:hover { color: #fff; }
     .pill { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; border-radius: 999px; font-size: 13px; font-weight: 700; text-decoration: none; border: none; cursor: pointer; transition: all .2s; }
@@ -43,7 +43,7 @@
     .pill-outline { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.3); }
     .pill-outline:hover { border-color: var(--gold); color: var(--gold); }
 
-    /* ── HERO ── */
+    /* -- HERO -- */
     .hero {
       background: var(--dark);
       min-height: 100vh;
@@ -73,7 +73,7 @@
     .t-check { width: 24px; height: 24px; border-radius: 50%; background: var(--gold); color: var(--dark); font-size: 11px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
     .t-text { font-size: 16px; font-weight: 600; color: rgba(255,255,255,.82); line-height: 1.4; }
 
-    /* ── TICKER ── */
+    /* -- TICKER -- */
     .ticker-wrap { background: var(--gold); overflow: hidden; padding: 14px 0; }
     .ticker-inner { display: flex; width: max-content; animation: ticker 35s linear infinite; }
     .ticker-inner:hover { animation-play-state: paused; }
@@ -81,7 +81,7 @@
     .ticker-item::after { content: '·'; margin-left: 28px; opacity: .35; }
     @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-    /* ── STATS ── */
+    /* -- STATS -- */
     .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--white); border-bottom: 1px solid var(--border); }
     .stat-block { padding: 52px 40px; border-right: 1px solid var(--border); }
     .stat-block:last-child { border-right: none; }
@@ -89,17 +89,17 @@
     .stat-label { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
     .stat-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
-    /* ── SECTION HELPERS ── */
+    /* -- SECTION HELPERS -- */
     .sec-dark { background: var(--dark); color: #fff; }
     .sec-white { background: var(--white); }
-    .sec-offwhite { background: var(--white); }
+    .sec-offwhite { background: var(--offwhite); }
     .wrap { max-width: 1160px; margin: 0 auto; padding: 96px 56px; }
     .wrap-sm { max-width: 820px; margin: 0 auto; padding: 96px 56px; }
     .section-kicker { font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-dk); margin-bottom: 16px; }
     .section-kicker-light { color: var(--gold); }
     .section-h2 { font-size: clamp(30px, 3.8vw, 50px); font-weight: 900; line-height: 1.05; letter-spacing: -.03em; }
 
-    /* ── PROBLEM ── */
+    /* -- PROBLEM -- */
     .problem-grid { display: grid; grid-template-columns: 280px 1fr; gap: 64px; align-items: start; }
     .problem-label { font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); padding-top: 4px; }
     .problem-card { border-left: 4px solid var(--gold); padding: 32px 36px; background: var(--offwhite); border-radius: 0 12px 12px 0; }
@@ -107,7 +107,7 @@
     .problem-card p:last-child { margin-bottom: 0; }
     .problem-card strong { color: var(--dark); font-weight: 700; }
 
-    /* ── FUNNEL ── */
+    /* -- FUNNEL -- */
     .funnel-header { margin-bottom: 48px; }
     .funnel-header h2 { font-size: clamp(28px, 3.5vw, 46px); font-weight: 900; line-height: 1.05; letter-spacing: -.03em; color: #fff; margin-top: 12px; }
     .funnel-header h2 em { font-style: normal; color: var(--gold); }
@@ -117,51 +117,15 @@
     .legend-line.solid { background: #fff; }
     .legend-line.dashed { background: transparent; border-top: 2px dashed rgba(255,255,255,.5); }
 
-    /* ── WHAT WE DO ── */
-    .wwd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(255,255,255,.06); border-radius: 16px; overflow: hidden; }
-    .wwd-card { background: var(--dark2); padding: 40px 36px; }
-    .wwd-phase { font-size: 9px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
-    .wwd-card h3 { font-size: 20px; font-weight: 900; color: #fff; letter-spacing: -.02em; line-height: 1.2; margin-bottom: 16px; }
-    .wwd-card p { font-size: 14px; color: rgba(255,255,255,.55); line-height: 1.75; margin-bottom: 24px; }
-    .wwd-tags { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
-    .wwd-tag { display: inline-block; font-size: 11px; font-weight: 700; color: rgba(255,255,255,.8); background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); padding: 5px 12px; border-radius: 999px; width: fit-content; }
-    .wwd-timeline { font-size: 11px; font-weight: 600; color: var(--gold); margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.08); }
+    /* -- CTA -- */
+    .cta-wrap { background: var(--dark); display: flex; align-items: center; min-height: 380px; padding: 88px 72px; }
+    .cta-inner { max-width: 700px; }
+    .cta-inner h2 { font-size: clamp(32px, 4vw, 56px); font-weight: 900; line-height: 1.05; letter-spacing: -.03em; color: #fff; margin-bottom: 20px; }
+    .cta-inner h2 em { font-style: normal; color: var(--gold); }
+    .cta-inner p { font-size: 18px; color: rgba(255,255,255,.5); line-height: 1.8; margin-bottom: 36px; max-width: 520px; }
+    .cta-inner strong { color: #fff; }
 
-    /* ── HOW WE'RE DIFFERENT ── */
-    .diff-card { border-left: 4px solid var(--gold); padding: 36px 40px; background: var(--white); border-radius: 0 12px 12px 0; }
-    .diff-card p { font-size: 18px; color: var(--text); line-height: 1.85; }
-
-    /* ── LEVERAGE ── */
-    .lev-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 64px; }
-    .lev-intro h2 { font-size: clamp(30px, 3.8vw, 48px); font-weight: 900; line-height: 1.05; letter-spacing: -.03em; }
-    .lev-intro p { font-size: 17px; color: var(--muted); line-height: 1.8; }
-    .lev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); border-radius: 16px; overflow: hidden; }
-    .lev-card { background: var(--white); padding: 36px 32px; transition: background .2s; }
-    .lev-card:hover { background: #F5F5FA; }
-    .lev-num { font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--dark2); background: var(--light2); display: inline-block; padding: 3px 9px; border-radius: 4px; margin-bottom: 16px; }
-    .lev-card h3 { font-size: 17px; font-weight: 800; color: var(--text); margin-bottom: 20px; letter-spacing: -.01em; }
-    .lev-row-lbl { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-dk); margin-bottom: 4px; }
-    .lev-row-txt { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 14px; }
-    .lev-impact { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 11px; font-weight: 800; color: var(--dark2); letter-spacing: .05em; text-transform: uppercase; }
-    .lev-wide { grid-column: span 3; background: var(--dark); padding: 48px; display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: center; }
-    .lev-wide h3 { font-size: 22px; font-weight: 900; color: #fff; letter-spacing: -.02em; line-height: 1.2; }
-    .lev-wide h3 em { font-style: normal; color: var(--gold); }
-    .lev-wide p { font-size: 16px; color: rgba(255,255,255,.6); line-height: 1.8; }
-
-    /* ── ENGAGEMENT ── */
-    .eng-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); border-radius: 16px; overflow: hidden; }
-    .eng-card { background: var(--white); padding: 44px 36px; }
-    .eng-card.featured { background: var(--dark); }
-    .eng-phase { font-size: 9px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
-    .eng-card.featured .eng-phase { color: var(--gold); }
-    .eng-card h3 { font-size: 32px; font-weight: 900; color: var(--text); letter-spacing: -.03em; margin-bottom: 16px; }
-    .eng-card.featured h3 { color: #fff; }
-    .eng-card p { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 24px; }
-    .eng-card.featured p { color: rgba(255,255,255,.55); }
-    .eng-fee { font-size: 13px; font-weight: 800; color: var(--gold-dk); }
-    .eng-card.featured .eng-fee { color: var(--gold); }
-
-    /* ── ABOUT ── */
+    /* -- ABOUT -- */
     .about-grid { display: grid; grid-template-columns: 1fr 320px; gap: 80px; align-items: start; }
     .about-bio p { font-size: 17px; color: var(--text); line-height: 1.85; margin-bottom: 24px; }
     .about-bio p:last-child { margin-bottom: 0; }
@@ -174,26 +138,14 @@
     .about-name { font-size: 22px; font-weight: 900; color: var(--text); letter-spacing: -.02em; margin-bottom: 4px; }
     .about-email { font-size: 14px; color: var(--gold-dk); font-weight: 500; margin-bottom: 40px; }
 
-    /* ── CTA ── */
-    .cta-wrap { background: var(--dark); display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; min-height: 440px; }
-    .cta-left { padding: 88px 64px; display: flex; flex-direction: column; justify-content: center; }
-    .cta-left h2 { font-size: clamp(32px, 4vw, 56px); font-weight: 900; line-height: 1.05; letter-spacing: -.03em; color: #fff; margin-bottom: 20px; }
-    .cta-left h2 em { font-style: normal; color: var(--gold); }
-    .cta-left p { font-size: 17px; color: rgba(255,255,255,.5); line-height: 1.8; margin-bottom: 36px; max-width: 420px; }
-    .cta-left strong { color: #fff; }
-    .cta-right { background: var(--gold); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 64px; text-align: center; }
-    .cta-right h3 { font-size: 26px; font-weight: 900; color: var(--dark); letter-spacing: -.02em; margin-bottom: 8px; }
-    .cta-right p { font-size: 15px; color: rgba(20,24,40,.6); margin-bottom: 32px; line-height: 1.6; }
-    .pill-dark-lg { display: inline-flex; align-items: center; gap: 8px; padding: 16px 36px; border-radius: 999px; font-size: 15px; font-weight: 800; background: var(--dark); color: #fff; text-decoration: none; transition: all .2s; }
-    .pill-dark-lg:hover { background: var(--dark2); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(20,24,40,.3); }
-
-    /* ── FOOTER ── */
+    /* -- FOOTER -- */
     footer { background: var(--dark); padding: 28px 56px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.06); }
     footer p { font-size: 12px; color: rgba(255,255,255,.28); }
     footer a { font-size: 12px; color: rgba(255,255,255,.28); text-decoration: none; transition: color .2s; }
     footer a:hover { color: var(--gold); }
+    .footer-links { display: flex; gap: 24px; }
 
-    /* ── MOBILE ── */
+    /* -- MOBILE -- */
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
@@ -204,14 +156,10 @@
       .stats-row { grid-template-columns: 1fr 1fr; }
       .stat-block { border-right: none; border-bottom: 1px solid var(--border); padding: 36px 24px; }
       .problem-grid { grid-template-columns: 1fr; gap: 24px; }
-      .wwd-grid, .eng-grid { grid-template-columns: 1fr; }
-      .lev-grid { grid-template-columns: 1fr; }
-      .lev-wide { grid-column: span 1; grid-template-columns: 1fr; gap: 20px; }
-      .lev-intro, .about-grid { grid-template-columns: 1fr; gap: 40px; }
-      .cta-wrap { grid-template-columns: 1fr; }
-      .cta-left { padding: 56px 24px; }
-      .cta-right { padding: 48px 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .cta-wrap { padding: 56px 24px; }
       footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px; }
+      .footer-links { flex-direction: column; gap: 8px; align-items: center; }
       .funnel-svg { transform: scale(1.6); transform-origin: center center; margin: 20px 0; }
       .funnel-container { overflow: hidden; }
     }
@@ -223,9 +171,11 @@
 <nav>
   <a href="/" class="logo">Your First <em>CRO</em></a>
   <ul class="nav-links">
-    <li><a href="#problem">The Problem</a></li>
-    <li><a href="#what-we-do">What We Do</a></li>
-    <li><a href="#engage">Engagement</a></li>
+    <li><a href="solutions.html">Solutions</a></li>
+    <li><a href="engagement.html">Engagement</a></li>
+    <li><a href="founders.html">Founders</a></li>
+    <li><a href="gtm-leaders.html">GTM Leaders</a></li>
+    <li><a href="investors.html">Investors</a></li>
     <li><a href="#about">About</a></li>
   </ul>
   <a href="book.html" class="pill pill-gold">Book a call →</a>
@@ -235,34 +185,34 @@
 <section class="hero">
   <div class="hero-left">
     <div class="hero-kicker">Revenue Infrastructure · B2B · Land & Expand</div>
-    <h1>You raised.<br>You hired.<br><em>Who builds the GTM playbook?</em></h1>
-    <p class="hero-sub">Every hire you make into an infrastructure gap costs you twice — once in salary, once in the ramp time spent building what should already exist. <strong>We close that gap before the hire starts.</strong></p>
+    <h1>You raised.<br>You hired.<br><em>Now build the playbook.</em></h1>
+    <p class="hero-sub">Most GTM hires land before the infrastructure exists to support them. <strong>We build the revenue system first</strong> - so every new addition hits the ground running and your best customers keep growing.</p>
     <div class="hero-actions">
       <a href="book.html" class="pill pill-gold">Book a call →</a>
-      <a href="#problem" class="pill pill-outline">The problem we solve →</a>
+      <a href="#problem" class="pill pill-outline">See the problem we solve →</a>
     </div>
   </div>
   <div class="hero-right">
     <div class="hero-right-label">You're in the right place if...</div>
     <div class="trigger-row">
       <div class="t-check">✓</div>
-      <span class="t-text">You're transitioning from founder-led to team-led GTM</span>
+      <span class="t-text">You're ready to hand off founder-led GTM to a team that can carry it</span>
     </div>
     <div class="trigger-row">
       <div class="t-check">✓</div>
-      <span class="t-text">Customers are landing but not expanding</span>
+      <span class="t-text">Customers are landing - and you want a real system for expanding them</span>
     </div>
     <div class="trigger-row">
       <div class="t-check">✓</div>
-      <span class="t-text">Sales and CS have split — but there's no shared framework between them</span>
+      <span class="t-text">Sales and CS are specializing and you want the infrastructure to match</span>
     </div>
     <div class="trigger-row">
       <div class="t-check">✓</div>
-      <span class="t-text">Expansion is reactive, not systematic</span>
+      <span class="t-text">You're ready to make customer expansion predictable and systematic</span>
     </div>
     <div class="trigger-row">
       <div class="t-check">✓</div>
-      <span class="t-text">You're about to hire a VP of Sales or CRO with nothing for them to land in</span>
+      <span class="t-text">You're hiring a VP of Sales or CRO and want them set up to win from day one</span>
     </div>
   </div>
 </section>
@@ -297,7 +247,7 @@
     <div class="stat-block">
       <div class="stat-num">$2M+</div>
       <div class="stat-label">The trigger stage</div>
-      <div class="stat-desc">The ARR range where founder-led GTM hits its ceiling and team-led needs to take over.</div>
+      <div class="stat-desc">The ARR range where founder-led GTM hits its ceiling and team-led takes over.</div>
     </div>
     <div class="stat-block">
       <div class="stat-num">$400K</div>
@@ -307,12 +257,12 @@
     <div class="stat-block">
       <div class="stat-num">60</div>
       <div class="stat-label">Days to first deliverable</div>
-      <div class="stat-desc">Every engagement ends with a tangible system your team owns — delivered in 30–60 days.</div>
+      <div class="stat-desc">Every engagement ends with a tangible system your team owns - delivered in 30-60 days.</div>
     </div>
     <div class="stat-block">
       <div class="stat-num" style="font-size:clamp(26px,3vw,42px);line-height:1.2;">Land &<br>Expand</div>
       <div class="stat-label">The motion we specialize in</div>
-      <div class="stat-desc">B2B companies where growth lives in customer expansion, not just acquisition.</div>
+      <div class="stat-desc">B2B companies where growth lives in customer expansion, not just new logo acquisition.</div>
     </div>
   </div>
 </section>
@@ -325,8 +275,8 @@
         <div class="section-kicker">The problem we solve</div>
       </div>
       <div class="problem-card">
-        <p>Sales wins an account. Service delivers the work. But there's no clear framework connecting those two — no visibility into which accounts are thriving, which are at risk, and which have untapped revenue potential. The result: <strong>customer lifetime value stays flat even as the business grows.</strong></p>
-        <p>The fix isn't more people. It's building the infrastructure that makes every client relationship more intentional, more trackable, and more profitable from the first conversation through years of renewal and expansion.</p>
+        <p>Sales wins an account. Service delivers the work. But there's no framework connecting the two - no visibility into which accounts are thriving, which have room to grow, and which need attention before they churn. The result: <strong>customer lifetime value stays flat even as the business grows.</strong></p>
+        <p>The opportunity is right there in your existing book of business. Building the infrastructure to capture it - a shared customer journey, clear ownership, and expansion playbooks - is what turns customer relationships into compounding revenue.</p>
       </div>
     </div>
   </div>
@@ -335,7 +285,7 @@
 <!-- LAND & EXPAND FUNNEL -->
 <section class="sec-white" id="funnel">
   <div class="wrap">
-    <div class="funnel-container" style="background:var(--white);border-left:3px solid var(--gold);padding:20px 20px 14px;border-radius:0 4px 4px 0;border:1px solid var(--border);border-left:3px solid var(--gold);">
+    <div class="funnel-container" style="background:var(--white);padding:20px 20px 14px;border-radius:0 4px 4px 0;border:1px solid var(--border);border-left:3px solid var(--gold);">
       <svg viewBox="0 0 728 222" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;" class="funnel-svg">
         <defs>
           <style>
@@ -367,102 +317,6 @@
   </div>
 </section>
 
-<!-- LEVERAGE -->
-<section class="sec-offwhite" id="leverage">
-  <div class="wrap">
-    <div class="lev-intro">
-      <div>
-        <div class="section-kicker">Where we create leverage</div>
-        <h2 class="section-h2" style="margin-top:12px;">We've seen these patterns. Here's what we do.</h2>
-      </div>
-      <p>These are the moments where GTM infrastructure creates the most value — across revenue, operations, product, and customer success.</p>
-    </div>
-    <div class="lev-grid">
-      <div class="lev-card">
-        <div class="lev-num">01 · Messaging</div>
-        <h3>Messaging Alignment</h3>
-        <div class="lev-row-lbl">What we see</div>
-        <div class="lev-row-txt">Sales pitches multiple use cases. Success only focuses on one.</div>
-        <div class="lev-row-lbl">What we do</div>
-        <div class="lev-row-txt">Build shared GTM messaging so teams are aligned from first pitch through adoption and expansion.</div>
-        <div class="lev-impact">Speed up time-to-value · Increased expansion ARR</div>
-      </div>
-      <div class="lev-card">
-        <div class="lev-num">02 · Journey</div>
-        <h3>Customer Journey Design</h3>
-        <div class="lev-row-lbl">What we see</div>
-        <div class="lev-row-txt">Reactive strategies based on customer adoption, with no shared playbook between teams.</div>
-        <div class="lev-row-lbl">What we do</div>
-        <div class="lev-row-txt">Create proactive GTM playbooks to guide the customer journey from land to expand.</div>
-        <div class="lev-impact">LTV · Expansion revenue · CS efficiency</div>
-      </div>
-      <div class="lev-card">
-        <div class="lev-num">03 · Time to Value</div>
-        <h3>Activation Ownership</h3>
-        <div class="lev-row-lbl">What we see</div>
-        <div class="lev-row-txt">No one owns the 60 days between "closed" and "activated."</div>
-        <div class="lev-row-lbl">What we do</div>
-        <div class="lev-row-txt">Build a shared time-to-value framework from close to first expansion conversation.</div>
-        <div class="lev-impact">Adoption · Expansion · Product signal</div>
-      </div>
-      <div class="lev-card">
-        <div class="lev-num">04 · ICP</div>
-        <h3>ICP Discipline</h3>
-        <div class="lev-row-lbl">What we see</div>
-        <div class="lev-row-txt">Revenue pressure expands the target. Every function absorbs the cost.</div>
-        <div class="lev-row-lbl">What we do</div>
-        <div class="lev-row-txt">Anchor ICP to what the product was built to deliver, and defend it as the team scales.</div>
-        <div class="lev-impact">Roadmap velocity · Core retention</div>
-      </div>
-      <div class="lev-card">
-        <div class="lev-num">05 · Operations</div>
-        <h3>Roles &amp; Responsibilities</h3>
-        <div class="lev-row-lbl">What we see</div>
-        <div class="lev-row-txt">Roles grow reactively. The handoff zone between sales and CS becomes a gray area where revenue leaks.</div>
-        <div class="lev-row-lbl">What we do</div>
-        <div class="lev-row-txt">Anchor roles and responsibilities to the customer journey so every function has clear ownership.</div>
-        <div class="lev-impact">Accountability · Team efficiency · Customer experience</div>
-      </div>
-      <div class="lev-card">
-        <div class="lev-num">06 · Product</div>
-        <h3>Product Signal</h3>
-        <div class="lev-row-lbl">What we see</div>
-        <div class="lev-row-txt">Product gets competing feature requests. Roadmap shaped by whoever argued last.</div>
-        <div class="lev-row-lbl">What we do</div>
-        <div class="lev-row-txt">Build a shared customer evidence layer. Signal over advocacy — decisions grounded in what customers actually do.</div>
-        <div class="lev-impact">Roadmap velocity · Product fit</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ENGAGEMENT -->
-<section class="sec-white" id="engage">
-  <div class="wrap">
-    <div class="section-kicker" style="margin-bottom:16px;">Engagement & pricing</div>
-    <div class="eng-grid">
-      <div class="eng-card featured">
-        <div class="eng-phase">Where most start</div>
-        <h3>Build</h3>
-        <p>A scoped project with a specific deliverable and deadline. You know exactly what you're getting and what it costs before anything starts.</p>
-        <div class="eng-fee">Flat project fee</div>
-      </div>
-      <div class="eng-card">
-        <div class="eng-phase">Once it's built</div>
-        <h3>Deploy</h3>
-        <p>We stay embedded to implement and operationalize the system with your team — getting it running in the real world.</p>
-        <div class="eng-fee" style="color:var(--muted);font-weight:700;">Minimum 3-month retainer</div>
-      </div>
-      <div class="eng-card">
-        <div class="eng-phase">Long-term</div>
-        <h3>Iterate</h3>
-        <p>Ongoing revenue partnership — available for strategic decisions, account planning, and GTM refinement as the business grows.</p>
-        <div class="eng-fee" style="color:var(--muted);font-weight:700;">Ongoing retainer · Scope defined post-project</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ABOUT -->
 <section class="sec-offwhite" id="about">
   <div class="wrap">
@@ -471,7 +325,7 @@
       <div class="about-bio">
         <div class="about-name">Buda Yao</div>
         <div class="about-email">buda@yourfirstcro.com</div>
-        <p>I grew up watching my family run small businesses — restaurants, laundromats, dry cleaners. I saw firsthand how hard it is to build something real without the infrastructure to support it. That shaped how I think about revenue: it's not about chasing the next deal, it's about building the system that makes every customer relationship more valuable over time.</p>
+        <p>I grew up watching my family run small businesses - restaurants, laundromats, dry cleaners. I saw firsthand how hard it is to build something real without the infrastructure to support it. That shaped how I think about revenue: it's not about chasing the next deal, it's about building the system that makes every customer relationship more valuable over time.</p>
         <p>I spent 9 years at JustWorks scaling GTM from Series B to pre-IPO, and joined Reflex as VP of Sales where I built the revenue infrastructure from the ground up. <strong>Your First CRO is the firm I wish had existed when I walked into that role.</strong></p>
       </div>
       <div class="about-sidebar">
@@ -499,16 +353,11 @@
 <!-- CTA -->
 <section id="cta">
   <div class="cta-wrap">
-    <div class="cta-left">
+    <div class="cta-inner">
       <div class="section-kicker section-kicker-light" style="margin-bottom:20px;">Ready to build</div>
       <h2>Build the system your <em>next hire</em> lands in.</h2>
-      <p>Most GTM hires land in a vacuum — no shared customer journey, no expansion playbook, no infrastructure. <strong>Your First CRO</strong> builds the revenue system before you make the hire that needs it.</p>
-      <a href="book.html" class="pill pill-gold" style="font-size:15px;padding:14px 32px;align-self:flex-start;">Book a discovery call →</a>
-    </div>
-    <div class="cta-right">
-      <h3>Start with a free consultation.</h3>
-      <p>30 minutes. No pitch deck. An honest read on where your revenue system stands and what to build first.</p>
-      <a href="book.html" class="pill-dark-lg">Book a discovery call →</a>
+      <p>Every great GTM hire deserves a real foundation to build on - a shared customer journey, a clear expansion playbook, and infrastructure that makes the whole team better. <strong>That's what we build.</strong></p>
+      <a href="book.html" class="pill pill-gold" style="font-size:15px;padding:14px 32px;">Book a discovery call →</a>
     </div>
   </div>
 </section>
@@ -516,7 +365,14 @@
 <!-- FOOTER -->
 <footer>
   <p>© 2026 Your First CRO · Revenue infrastructure for businesses built to last.</p>
-  <a href="book.html">Book a discovery call →</a>
+  <div class="footer-links">
+    <a href="solutions.html">Solutions</a>
+    <a href="engagement.html">Engagement</a>
+    <a href="founders.html">Founders</a>
+    <a href="gtm-leaders.html">GTM Leaders</a>
+    <a href="investors.html">Investors</a>
+    <a href="book.html">Book a call →</a>
+  </div>
 </footer>
 
 </body>

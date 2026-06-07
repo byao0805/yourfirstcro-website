@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solutions — Your First CRO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --dark:    #141828;
+      --dark2:   #1C2240;
+      --white:   #FFFFFF;
+      --offwhite:#F8F8FA;
+      --light2:  #F0F0F4;
+      --text:    #141828;
+      --muted:   #6B7280;
+      --border:  #E4E6EF;
+      --gold:    #FDB927;
+      --gold-dk: #C8900A;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--text); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+
+    /* -- NAV -- */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 68px;
+      background: var(--dark); border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .logo { font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #fff; text-decoration: none; }
+    .logo em { font-style: normal; color: var(--gold); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,.5); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+    .pill { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; border-radius: 999px; font-size: 13px; font-weight: 700; text-decoration: none; transition: all .2s; }
+    .pill-gold { background: var(--gold); color: var(--dark); }
+    .pill-gold:hover { background: var(--gold-dk); color: #fff; transform: translateY(-1px); }
+
+    /* -- PAGE HERO -- */
+    .page-hero { background: var(--dark); padding-top: 68px; }
+    .page-hero-inner { max-width: 1160px; margin: 0 auto; padding: 80px 56px 72px; }
+    .page-kicker { font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .page-hero h1 { font-size: clamp(38px, 5vw, 68px); font-weight: 900; line-height: 1.0; letter-spacing: -.03em; color: #fff; margin-bottom: 24px; }
+    .page-hero h1 em { font-style: normal; color: var(--gold); }
+    .page-hero-sub { font-size: 18px; color: rgba(255,255,255,.5); line-height: 1.75; max-width: 580px; }
+
+    /* -- SECTION -- */
+    .wrap { max-width: 1160px; margin: 0 auto; padding: 96px 56px; }
+    .section-kicker { font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-dk); margin-bottom: 16px; }
+
+    /* -- LEVERAGE GRID -- */
+    .lev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); border-radius: 16px; overflow: hidden; }
+    .lev-card { background: var(--white); padding: 36px 32px; transition: background .2s; }
+    .lev-card:hover { background: #F5F5FA; }
+    .lev-num { font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--dark2); background: var(--light2); display: inline-block; padding: 3px 9px; border-radius: 4px; margin-bottom: 16px; }
+    .lev-card h3 { font-size: 17px; font-weight: 800; color: var(--text); margin-bottom: 20px; letter-spacing: -.01em; }
+    .lev-row-lbl { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-dk); margin-bottom: 4px; }
+    .lev-row-txt { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 14px; }
+    .lev-impact { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 11px; font-weight: 800; color: var(--dark2); letter-spacing: .05em; text-transform: uppercase; }
+
+    /* -- INTRO BLOCK -- */
+    .lev-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 64px; }
+    .lev-intro h2 { font-size: clamp(30px, 3.8vw, 48px); font-weight: 900; line-height: 1.05; letter-spacing: -.03em; }
+    .lev-intro p { font-size: 17px; color: var(--muted); line-height: 1.8; }
+
+    /* -- CTA -- */
+    .cta-wrap { background: var(--dark); display: flex; align-items: center; min-height: 320px; padding: 80px 72px; }
+    .cta-inner { max-width: 700px; }
+    .cta-inner h2 { font-size: clamp(28px, 3.5vw, 48px); font-weight: 900; line-height: 1.05; letter-spacing: -.03em; color: #fff; margin-bottom: 16px; }
+    .cta-inner h2 em { font-style: normal; color: var(--gold); }
+    .cta-inner p { font-size: 17px; color: rgba(255,255,255,.5); line-height: 1.8; margin-bottom: 32px; max-width: 500px; }
+    .section-kicker-light { color: var(--gold); }
+
+    /* -- FOOTER -- */
+    footer { background: var(--dark); padding: 28px 56px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.06); }
+    footer p { font-size: 12px; color: rgba(255,255,255,.28); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,.28); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* -- MOBILE -- */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .page-hero-inner, .wrap { padding: 56px 24px; }
+      .lev-grid { grid-template-columns: 1fr; }
+      .lev-intro { grid-template-columns: 1fr; gap: 32px; }
+      .cta-wrap { padding: 56px 24px; }
+      footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px; }
+      .footer-links { flex-direction: column; gap: 8px; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="logo">Your First <em>CRO</em></a>
+  <ul class="nav-links">
+    <li><a href="solutions.html" class="active">Solutions</a></li>
+    <li><a href="engagement.html">Engagement</a></li>
+    <li><a href="founders.html">Founders</a></li>
+    <li><a href="gtm-leaders.html">GTM Leaders</a></li>
+    <li><a href="investors.html">Investors</a></li>
+    <li><a href="/#about">About</a></li>
+  </ul>
+  <a href="book.html" class="pill pill-gold">Book a call →</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-kicker">Solutions</div>
+    <h1>Where we create <em>leverage.</em></h1>
+    <p class="page-hero-sub">Six places where GTM infrastructure creates the most value - across messaging, the customer journey, activation, ICP, operations, and product signal.</p>
+  </div>
+</div>
+
+<!-- LEVERAGE GRID -->
+<section>
+  <div class="wrap">
+    <div class="lev-intro">
+      <h2>We've seen these patterns. Here's what we build.</h2>
+      <p>These are the moments where the right infrastructure unlocks the most growth - faster time-to-value, more expansion revenue, and a team that operates with real clarity.</p>
+    </div>
+    <div class="lev-grid">
+      <div class="lev-card">
+        <div class="lev-num">01 · Messaging</div>
+        <h3>Messaging Alignment</h3>
+        <div class="lev-row-lbl">What we see</div>
+        <div class="lev-row-txt">Sales pitches multiple use cases. Success only focuses on one. The customer gets a different story at every stage.</div>
+        <div class="lev-row-lbl">What we build</div>
+        <div class="lev-row-txt">Shared GTM messaging that aligns teams from first pitch through adoption and expansion - so the customer always knows what they bought and why it matters.</div>
+        <div class="lev-impact">Faster time-to-value · Increased expansion ARR</div>
+      </div>
+      <div class="lev-card">
+        <div class="lev-num">02 · Journey</div>
+        <h3>Customer Journey Design</h3>
+        <div class="lev-row-lbl">What we see</div>
+        <div class="lev-row-txt">CS is reacting to customer adoption signals with no shared playbook. Every account gets a different experience depending on who handles it.</div>
+        <div class="lev-row-lbl">What we build</div>
+        <div class="lev-row-txt">Proactive GTM playbooks that guide the customer journey from land to expand - so every team knows what comes next and when to act.</div>
+        <div class="lev-impact">LTV · Expansion revenue · CS efficiency</div>
+      </div>
+      <div class="lev-card">
+        <div class="lev-num">03 · Time to Value</div>
+        <h3>Activation Ownership</h3>
+        <div class="lev-row-lbl">What we see</div>
+        <div class="lev-row-txt">The 60 days between "closed" and "activated" belong to everyone in theory and no one in practice. Deals slip through.</div>
+        <div class="lev-row-lbl">What we build</div>
+        <div class="lev-row-txt">A shared time-to-value framework from close to first expansion conversation - with clear owners and milestones at every step.</div>
+        <div class="lev-impact">Adoption · Expansion · Product signal</div>
+      </div>
+      <div class="lev-card">
+        <div class="lev-num">04 · ICP</div>
+        <h3>ICP Discipline</h3>
+        <div class="lev-row-lbl">What we see</div>
+        <div class="lev-row-txt">Revenue pressure slowly expands the target market until the ICP is everyone - and the product roadmap and CS motion start splintering.</div>
+        <div class="lev-row-lbl">What we build</div>
+        <div class="lev-row-txt">An ICP anchored to what the product was built to deliver - and the shared language to defend it as the team scales.</div>
+        <div class="lev-impact">Roadmap velocity · Core retention</div>
+      </div>
+      <div class="lev-card">
+        <div class="lev-num">05 · Operations</div>
+        <h3>Roles &amp; Responsibilities</h3>
+        <div class="lev-row-lbl">What we see</div>
+        <div class="lev-row-txt">Roles grow reactively. The handoff zone between sales and CS becomes a gray area where revenue leaks and accountability disappears.</div>
+        <div class="lev-row-lbl">What we build</div>
+        <div class="lev-row-txt">Roles and responsibilities anchored to the customer journey - so every function has clear ownership and nothing falls through the cracks.</div>
+        <div class="lev-impact">Accountability · Team efficiency · Customer experience</div>
+      </div>
+      <div class="lev-card">
+        <div class="lev-num">06 · Product</div>
+        <h3>Product Signal</h3>
+        <div class="lev-row-lbl">What we see</div>
+        <div class="lev-row-txt">Product gets competing feature requests from every direction. The roadmap gets shaped by whoever argued loudest last week.</div>
+        <div class="lev-row-lbl">What we build</div>
+        <div class="lev-row-txt">A shared customer evidence layer - signal over advocacy, with decisions grounded in what customers actually do and what drives their expansion.</div>
+        <div class="lev-impact">Roadmap velocity · Product-market fit</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="cta-wrap">
+    <div class="cta-inner">
+      <div class="section-kicker section-kicker-light" style="margin-bottom:20px;">Let's talk</div>
+      <h2>See which of these <em>applies to you.</em></h2>
+      <p>Most companies are working through 2-3 of these at once. A 30-minute call is usually enough to identify where the biggest opportunity is and what to build first.</p>
+      <a href="book.html" class="pill pill-gold" style="font-size:15px;padding:14px 32px;">Book a free consultation →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Your First CRO · Revenue infrastructure for businesses built to last.</p>
+  <div class="footer-links">
+    <a href="solutions.html">Solutions</a>
+    <a href="engagement.html">Engagement</a>
+    <a href="founders.html">Founders</a>
+    <a href="gtm-leaders.html">GTM Leaders</a>
+    <a href="investors.html">Investors</a>
+    <a href="book.html">Book a call →</a>
+  </div>
+</footer>
+
+</body>
+</html>
