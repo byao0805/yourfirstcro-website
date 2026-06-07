@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Your First CRO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --dark:    #141828;
+      --dark2:   #1C2240;
+      --white:   #FFFFFF;
+      --offwhite:#F8F8FA;
+      --text:    #141828;
+      --muted:   #6B7280;
+      --border:  #E4E6EF;
+      --gold:    #FDB927;
+      --gold-dk: #C8900A;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--text); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+
+    /* -- NAV -- */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 68px;
+      background: var(--dark); border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .logo { font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #fff; text-decoration: none; }
+    .logo em { font-style: normal; color: var(--gold); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,.5); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+    .pill { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; border-radius: 999px; font-size: 13px; font-weight: 700; text-decoration: none; transition: all .2s; }
+    .pill-gold { background: var(--gold); color: var(--dark); }
+    .pill-gold:hover { background: var(--gold-dk); color: #fff; transform: translateY(-1px); }
+
+    /* -- PAGE HERO -- */
+    .page-hero { background: var(--dark); padding-top: 68px; }
+    .page-hero-inner { max-width: 1160px; margin: 0 auto; padding: 80px 56px 72px; }
+    .page-kicker { font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .page-hero h1 { font-size: clamp(38px, 5vw, 68px); font-weight: 900; line-height: 1.0; letter-spacing: -.03em; color: #fff; margin-bottom: 24px; }
+    .page-hero h1 em { font-style: normal; color: var(--gold); }
+    .page-hero-sub { font-size: 18px; color: rgba(255,255,255,.5); line-height: 1.75; max-width: 580px; }
+
+    /* -- SECTION -- */
+    .wrap { max-width: 1160px; margin: 0 auto; padding: 96px 56px; }
+    .section-kicker { font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-dk); margin-bottom: 16px; }
+    .section-kicker-light { color: var(--gold); }
+    .sec-offwhite { background: var(--offwhite); }
+
+    /* -- ABOUT MAIN -- */
+    .about-grid { display: grid; grid-template-columns: 1fr 340px; gap: 80px; align-items: start; }
+    .about-bio p { font-size: 17px; color: var(--text); line-height: 1.85; margin-bottom: 24px; }
+    .about-bio p:last-child { margin-bottom: 0; }
+    .about-bio strong { font-weight: 700; }
+    .about-name { font-size: 28px; font-weight: 900; color: var(--text); letter-spacing: -.02em; margin-bottom: 4px; }
+    .about-title { font-size: 14px; color: var(--gold-dk); font-weight: 600; margin-bottom: 36px; }
+    .about-sidebar { background: var(--dark); border-radius: 16px; padding: 36px; }
+    .about-row { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .about-row:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .about-row-label { font-size: 9px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 8px; }
+    .about-row-value { font-size: 14px; font-weight: 700; color: #fff; line-height: 1.55; }
+
+    /* -- WHY THIS -- */
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .why-h2 { font-size: clamp(28px, 3.5vw, 44px); font-weight: 900; line-height: 1.05; letter-spacing: -.03em; margin-bottom: 20px; }
+    .why-h2 em { font-style: normal; color: var(--gold-dk); }
+    .why-body p { font-size: 16px; color: var(--muted); line-height: 1.85; margin-bottom: 20px; }
+    .why-body p:last-child { margin-bottom: 0; }
+    .why-body strong { color: var(--text); font-weight: 700; }
+    .why-cards { display: flex; flex-direction: column; gap: 2px; }
+    .why-card { background: var(--offwhite); border-radius: 12px; padding: 28px 32px; }
+    .why-card-label { font-size: 9px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-dk); margin-bottom: 8px; }
+    .why-card p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+    /* -- CTA -- */
+    .cta-wrap { background: var(--dark); padding: 96px 56px; text-align: center; }
+    .cta-inner { max-width: 720px; margin: 0 auto; }
+    .cta-inner h2 { font-size: clamp(32px, 4vw, 52px); font-weight: 900; line-height: 1.05; letter-spacing: -.03em; color: #fff; margin-bottom: 20px; }
+    .cta-inner h2 em { font-style: normal; color: var(--gold); }
+    .cta-inner p { font-size: 18px; color: rgba(255,255,255,.5); line-height: 1.8; margin-bottom: 36px; }
+
+    /* -- FOOTER -- */
+    footer { background: var(--dark); padding: 28px 56px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.06); }
+    footer p { font-size: 12px; color: rgba(255,255,255,.28); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,.28); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* -- MOBILE -- */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .page-hero-inner, .wrap { padding: 56px 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .why-grid { grid-template-columns: 1fr; gap: 40px; }
+      .cta-wrap { padding: 64px 24px; }
+      footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px; }
+      .footer-links { flex-direction: column; gap: 8px; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="logo">Your First <em>CRO</em></a>
+  <ul class="nav-links">
+    <li><a href="solutions.html">Solutions</a></li>
+    <li><a href="engagement.html">Engagement</a></li>
+    <li><a href="founders.html">Founders</a></li>
+    <li><a href="gtm-leaders.html">GTM Leaders</a></li>
+    <li><a href="investors.html">Investors</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+  </ul>
+  <a href="book.html" class="pill pill-gold">Book a call →</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-kicker">About</div>
+    <h1>Built by someone who's <em>been in the seat.</em></h1>
+    <p class="page-hero-sub">Your First CRO exists because I walked into a revenue leadership role with no playbook, no infrastructure, and no roadmap for what to build first. I'm building the firm I wish had existed then.</p>
+  </div>
+</div>
+
+<!-- ABOUT MAIN -->
+<section>
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-bio">
+        <div class="about-name">Buda Yao</div>
+        <div class="about-title">Founder, Your First CRO · VP of Sales, Reflex</div>
+        <p>I grew up watching my family run small businesses - restaurants, laundromats, dry cleaners. I saw firsthand how hard it is to build something real without the infrastructure to support it. That shaped how I think about revenue: it's not about chasing the next deal. It's about building the system that makes every customer relationship more valuable over time.</p>
+        <p>I spent 9 years at JustWorks scaling GTM from Series B through pre-IPO - building the playbooks, the team structures, and the customer motion that let the company grow without losing what made it work. Then I joined Reflex as VP of Sales, where I built the revenue infrastructure from the ground up.</p>
+        <p><strong>Your First CRO is the firm I wish had existed when I walked into that role.</strong> The playbook, the frameworks, the customer journey work - all of it came from doing this live, under real pressure, with a real team. I know how to build it because I had to build it myself first.</p>
+      </div>
+      <div class="about-sidebar">
+        <div class="about-row">
+          <div class="about-row-label">Currently</div>
+          <div class="about-row-value">Founder, Your First CRO<br>VP of Sales, Reflex</div>
+        </div>
+        <div class="about-row">
+          <div class="about-row-label">Prior</div>
+          <div class="about-row-value">Director of Sales, JustWorks<br>(9 years, Series B to pre-IPO)</div>
+        </div>
+        <div class="about-row">
+          <div class="about-row-label">Focus</div>
+          <div class="about-row-value">Revenue infrastructure, LTV, customer expansion, land & expand GTM</div>
+        </div>
+        <div class="about-row">
+          <div class="about-row-label">Based in</div>
+          <div class="about-row-value">New York, NY</div>
+        </div>
+        <div class="about-row">
+          <div class="about-row-label">Contact</div>
+          <div class="about-row-value" style="color:var(--gold);">buda@yourfirstcro.com</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY THIS -->
+<section class="sec-offwhite">
+  <div class="wrap">
+    <div class="why-grid">
+      <div>
+        <div class="section-kicker" style="margin-bottom:16px;">Why Your First CRO</div>
+        <h2 class="why-h2">The gap between <em>first revenue</em> and real infrastructure is where growth stalls.</h2>
+        <div class="why-body" style="margin-top:24px;">
+          <p>Most B2B companies hit $2M-$5M ARR on founder hustle, great product, and a few key relationships. Then they try to scale - and discover the GTM system never got built. They hire a VP of Sales or a CRO. That hire lands in a vacuum. Six months go by. The team is growing but the motion isn't compounding.</p>
+          <p>The window to fix this is earlier than most people think. <strong>Before the hire, not after.</strong> Before the team doubles, not once it already has. That's when GTM infrastructure has the highest leverage - and that's exactly when we come in.</p>
+        </div>
+      </div>
+      <div class="why-cards">
+        <div class="why-card">
+          <div class="why-card-label">The JustWorks lesson</div>
+          <p>9 years inside a company that scaled from scrappy to institutional taught me what breaks at every stage - and more importantly, what to build before it breaks.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-card-label">The Reflex lesson</div>
+          <p>Building revenue infrastructure from zero inside a growing company taught me how to move fast, make decisions with incomplete information, and build things that actually get adopted by real teams.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-card-label">The point of view</div>
+          <p>Revenue infrastructure isn't about processes and org charts. It's about making every customer relationship more intentional, more trackable, and more profitable from the first conversation through years of renewal and expansion.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="cta-wrap">
+    <div class="cta-inner">
+      <div class="section-kicker section-kicker-light" style="margin-bottom:20px;">Let's talk</div>
+      <h2>30 minutes to see if <em>there's a fit.</em></h2>
+      <p>Tell us where you are. We'll tell you what we'd build and what it looks like when it's done. No pitch deck required.</p>
+      <a href="book.html" class="pill pill-gold" style="font-size:15px;padding:14px 36px;">Book a free consultation →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Your First CRO · Revenue infrastructure for businesses built to last.</p>
+  <div class="footer-links">
+    <a href="solutions.html">Solutions</a>
+    <a href="engagement.html">Engagement</a>
+    <a href="founders.html">Founders</a>
+    <a href="gtm-leaders.html">GTM Leaders</a>
+    <a href="investors.html">Investors</a>
+    <a href="book.html">Book a call →</a>
+  </div>
+</footer>
+
+</body>
+</html>

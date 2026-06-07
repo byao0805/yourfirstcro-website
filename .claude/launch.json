@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "yourfirstcro",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "3456", "--directory", "/Users/buda/Documents/yourfirstcro-website"],
+      "port": 3456
+    }
+  ]
+}
