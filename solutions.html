@@ -6,7 +6,7 @@
   <title>Solutions — Your First CRO</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -22,7 +22,7 @@
       --gold-dk: #C8900A;
     }
     html { scroll-behavior: smooth; }
-    body { background: var(--white); color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+    body { background: var(--white); color: var(--text); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
 
     /* -- NAV -- */
     nav {
@@ -43,30 +43,24 @@
     /* -- PAGE HERO -- */
     .page-hero { background: var(--dark); padding-top: 68px; }
     .page-hero-inner { max-width: 1160px; margin: 0 auto; padding: 80px 56px 72px; }
-    .page-kicker { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.45); border: 1px solid rgba(255,255,255,.15); padding: 5px 12px; border-radius: 6px; margin-bottom: 20px; }
+    .page-kicker { font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
     .page-hero h1 { font-size: clamp(38px, 5vw, 68px); font-weight: 900; line-height: 1.0; letter-spacing: -.03em; color: #fff; margin-bottom: 24px; }
     .page-hero h1 em { font-style: normal; color: var(--gold); }
     .page-hero-sub { font-size: 18px; color: rgba(255,255,255,.5); line-height: 1.75; max-width: 580px; }
 
     /* -- SECTION -- */
     .wrap { max-width: 1160px; margin: 0 auto; padding: 96px 56px; }
-    .section-kicker { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); padding: 4px 10px; border-radius: 6px; margin-bottom: 20px; }
-    .section-kicker-light { color: rgba(255,255,255,.45); border-color: rgba(255,255,255,.15); }
+    .section-kicker { font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-dk); margin-bottom: 16px; }
 
     /* -- LEVERAGE GRID -- */
     .lev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); border-radius: 16px; overflow: hidden; }
-    .lev-card { background: var(--white); padding: 36px 32px; transition: background .2s; display: flex; flex-direction: column; }
+    .lev-card { background: var(--white); padding: 36px 32px; transition: background .2s; }
     .lev-card:hover { background: #F5F5FA; }
-    .lev-num { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); display: inline-block; padding: 3px 9px; border-radius: 6px; margin-bottom: 16px; }
+    .lev-num { font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--dark2); background: var(--light2); display: inline-block; padding: 3px 9px; border-radius: 4px; margin-bottom: 16px; }
     .lev-card h3 { font-size: 17px; font-weight: 800; color: var(--text); margin-bottom: 20px; letter-spacing: -.01em; }
-    .lev-row-lbl { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+    .lev-row-lbl { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-dk); margin-bottom: 4px; }
     .lev-row-txt { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 14px; }
-    .lev-deliverable { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border); }
-    .lev-del-lbl { font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-dk); margin-bottom: 8px; }
-    .lev-del-name { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 5px; }
-    .lev-del-desc { font-size: 12px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
-    .lev-del-format { display: flex; gap: 6px; flex-wrap: wrap; }
-    .lev-fmt { font-size: 10px; font-weight: 600; color: var(--dark2); background: var(--light2); padding: 2px 8px; border-radius: 4px; }
+    .lev-impact { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 11px; font-weight: 800; color: var(--dark2); letter-spacing: .05em; text-transform: uppercase; }
 
     /* -- INTRO BLOCK -- */
     .lev-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 64px; }
@@ -145,16 +139,7 @@
         <div class="lev-row-txt">Sales pitches multiple use cases. Success only focuses on one. The customer gets a different story at every stage.</div>
         <div class="lev-row-lbl">What we build</div>
         <div class="lev-row-txt">Shared GTM messaging that aligns teams from first pitch through adoption and expansion - so the customer always knows what they bought and why it matters.</div>
-        <div class="lev-deliverable">
-          <div class="lev-del-lbl">Deliverable</div>
-          <div class="lev-del-name">GTM Messaging Architecture</div>
-          <div class="lev-del-desc">A single document your Sales, CS, and Marketing teams all work from: core value proposition, differentiation by persona, objection handling language, and expansion trigger messaging.</div>
-          <div class="lev-del-format">
-            <span class="lev-fmt">1-page PDF</span>
-            <span class="lev-fmt">Notion template</span>
-            <span class="lev-fmt">Sales deck slide</span>
-          </div>
-        </div>
+        <div class="lev-impact">Faster time-to-value · Increased expansion ARR</div>
       </div>
       <div class="lev-card">
         <div class="lev-num">02 · Journey</div>
@@ -163,16 +148,7 @@
         <div class="lev-row-txt">CS is reacting to customer adoption signals with no shared playbook. Every account gets a different experience depending on who handles it.</div>
         <div class="lev-row-lbl">What we build</div>
         <div class="lev-row-txt">Proactive GTM playbooks that guide the customer journey from land to expand - so every team knows what comes next and when to act.</div>
-        <div class="lev-deliverable">
-          <div class="lev-del-lbl">Deliverable</div>
-          <div class="lev-del-name">Customer Journey Map + Playbook</div>
-          <div class="lev-del-desc">A lifecycle map covering Land, Activate, Expand, and Renew - with defined milestones, team owners, customer-facing plays, and early warning signals for each stage.</div>
-          <div class="lev-del-format">
-            <span class="lev-fmt">Miro/Figma board</span>
-            <span class="lev-fmt">Notion playbook</span>
-            <span class="lev-fmt">CRM stage guide</span>
-          </div>
-        </div>
+        <div class="lev-impact">LTV · Expansion revenue · CS efficiency</div>
       </div>
       <div class="lev-card">
         <div class="lev-num">03 · Time to Value</div>
@@ -181,16 +157,7 @@
         <div class="lev-row-txt">The 60 days between "closed" and "activated" belong to everyone in theory and no one in practice. Deals slip through.</div>
         <div class="lev-row-lbl">What we build</div>
         <div class="lev-row-txt">A shared time-to-value framework from close to first expansion conversation - with clear owners and milestones at every step.</div>
-        <div class="lev-deliverable">
-          <div class="lev-del-lbl">Deliverable</div>
-          <div class="lev-del-name">Time-to-Value Playbook</div>
-          <div class="lev-del-desc">A day-by-day onboarding sequence covering the first 60 days post-close: who owns each step, what "activated" means for your product, milestone definitions, and the handoff protocol from Sales to CS.</div>
-          <div class="lev-del-format">
-            <span class="lev-fmt">Project template</span>
-            <span class="lev-fmt">Milestone checklist</span>
-            <span class="lev-fmt">Handoff SLA doc</span>
-          </div>
-        </div>
+        <div class="lev-impact">Adoption · Expansion · Product signal</div>
       </div>
       <div class="lev-card">
         <div class="lev-num">04 · ICP</div>
@@ -199,16 +166,7 @@
         <div class="lev-row-txt">Revenue pressure slowly expands the target market until the ICP is everyone - and the product roadmap and CS motion start splintering.</div>
         <div class="lev-row-lbl">What we build</div>
         <div class="lev-row-txt">An ICP anchored to what the product was built to deliver - and the shared language to defend it as the team scales.</div>
-        <div class="lev-deliverable">
-          <div class="lev-del-lbl">Deliverable</div>
-          <div class="lev-del-name">ICP Definition Document</div>
-          <div class="lev-del-desc">A concise document that defines your 3-5 core ICP characteristics, the signals that indicate expansion potential, explicit out-of-ICP criteria, and CRM filter logic so your team can apply it consistently in the field.</div>
-          <div class="lev-del-format">
-            <span class="lev-fmt">1-page PDF</span>
-            <span class="lev-fmt">CRM filter template</span>
-            <span class="lev-fmt">Scoring rubric</span>
-          </div>
-        </div>
+        <div class="lev-impact">Roadmap velocity · Core retention</div>
       </div>
       <div class="lev-card">
         <div class="lev-num">05 · Operations</div>
@@ -217,16 +175,7 @@
         <div class="lev-row-txt">Roles grow reactively. The handoff zone between sales and CS becomes a gray area where revenue leaks and accountability disappears.</div>
         <div class="lev-row-lbl">What we build</div>
         <div class="lev-row-txt">Roles and responsibilities anchored to the customer journey - so every function has clear ownership and nothing falls through the cracks.</div>
-        <div class="lev-deliverable">
-          <div class="lev-del-lbl">Deliverable</div>
-          <div class="lev-del-name">GTM RACI + Handoff Protocol</div>
-          <div class="lev-del-desc">A cross-functional responsibility matrix mapped to your customer journey stages - who owns what at each milestone, handoff SLA definitions, and an escalation protocol when ownership is disputed.</div>
-          <div class="lev-del-format">
-            <span class="lev-fmt">RACI spreadsheet</span>
-            <span class="lev-fmt">Handoff checklist</span>
-            <span class="lev-fmt">Escalation playbook</span>
-          </div>
-        </div>
+        <div class="lev-impact">Accountability · Team efficiency · Customer experience</div>
       </div>
       <div class="lev-card">
         <div class="lev-num">06 · Product</div>
@@ -235,16 +184,7 @@
         <div class="lev-row-txt">Product gets competing feature requests from every direction. The roadmap gets shaped by whoever argued loudest last week.</div>
         <div class="lev-row-lbl">What we build</div>
         <div class="lev-row-txt">A shared customer evidence layer - signal over advocacy, with decisions grounded in what customers actually do and what drives their expansion.</div>
-        <div class="lev-deliverable">
-          <div class="lev-del-lbl">Deliverable</div>
-          <div class="lev-del-name">Customer Evidence System</div>
-          <div class="lev-del-desc">A standardized template for capturing, segmenting, and scoring product feedback from customers - organized by ICP tier, expansion stage, and usage pattern so Product hears the right signal, not just the loudest voice.</div>
-          <div class="lev-del-format">
-            <span class="lev-fmt">Feedback template</span>
-            <span class="lev-fmt">Evidence scorecard</span>
-            <span class="lev-fmt">CRM integration guide</span>
-          </div>
-        </div>
+        <div class="lev-impact">Roadmap velocity · Product-market fit</div>
       </div>
     </div>
   </div>
