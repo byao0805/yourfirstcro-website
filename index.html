@@ -6,7 +6,7 @@
   <title>Your First CRO — Revenue Infrastructure for B2B Companies</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -23,7 +23,7 @@
       --gold-dk: #C8900A;
     }
     html { scroll-behavior: smooth; }
-    body { background: var(--white); color: var(--text); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+    body { background: var(--white); color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; -webkit-font-smoothing: antialiased; }
 
     /* -- NAV -- */
     nav {
@@ -54,8 +54,8 @@
       overflow: hidden;
     }
     .hero-left { padding: 80px 56px 80px 72px; }
-    .hero-kicker { font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; }
-    .hero h1 { font-size: clamp(44px, 5.5vw, 76px); font-weight: 900; line-height: 1.0; letter-spacing: -.03em; color: #fff; margin-bottom: 28px; }
+    .hero-kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.45); border: 1px solid rgba(255,255,255,.15); padding: 5px 12px; border-radius: 6px; margin-bottom: 28px; }
+    .hero h1 { font-size: clamp(44px, 5.5vw, 76px); font-weight: 800; line-height: 1.0; letter-spacing: -.025em; color: #fff; margin-bottom: 28px; }
     .hero h1 em { font-style: normal; color: var(--gold); }
     .hero-sub { font-size: 18px; color: rgba(255,255,255,.5); line-height: 1.75; margin-bottom: 44px; max-width: 480px; }
     .hero-sub strong { color: var(--gold); font-weight: 700; }
@@ -67,25 +67,18 @@
       display: flex; flex-direction: column; justify-content: center;
       padding: 80px 56px;
     }
-    .hero-right-label { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 32px; }
+    .hero-right-label { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.4); border: 1px solid rgba(255,255,255,.12); display: inline-block; padding: 5px 12px; border-radius: 6px; margin-bottom: 32px; }
     .trigger-row { display: flex; align-items: flex-start; gap: 16px; padding: 22px 0; border-bottom: 1px solid rgba(255,255,255,.07); }
     .trigger-row:last-child { border-bottom: none; }
     .t-check { width: 24px; height: 24px; border-radius: 50%; background: var(--gold); color: var(--dark); font-size: 11px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
     .t-text { font-size: 16px; font-weight: 600; color: rgba(255,255,255,.82); line-height: 1.4; }
 
-    /* -- TICKER -- */
-    .ticker-wrap { background: var(--gold); overflow: hidden; padding: 14px 0; }
-    .ticker-inner { display: flex; width: max-content; animation: ticker 35s linear infinite; }
-    .ticker-inner:hover { animation-play-state: paused; }
-    .ticker-item { font-size: 12px; font-weight: 800; color: var(--dark); padding: 0 28px; text-transform: uppercase; letter-spacing: .1em; white-space: nowrap; }
-    .ticker-item::after { content: '·'; margin-left: 28px; opacity: .35; }
-    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
     /* -- STATS -- */
     .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--white); border-bottom: 1px solid var(--border); }
     .stat-block { padding: 52px 40px; border-right: 1px solid var(--border); }
     .stat-block:last-child { border-right: none; }
-    .stat-num { font-size: clamp(38px, 4.5vw, 60px); font-weight: 900; letter-spacing: -.03em; color: var(--gold-dk); line-height: 1; margin-bottom: 10px; }
+    .stat-num { font-size: clamp(38px, 4.5vw, 60px); font-weight: 800; letter-spacing: -.03em; color: var(--dark); line-height: 1; margin-bottom: 10px; }
     .stat-label { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
     .stat-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
@@ -95,14 +88,13 @@
     .sec-offwhite { background: var(--offwhite); }
     .wrap { max-width: 1160px; margin: 0 auto; padding: 96px 56px; }
     .wrap-sm { max-width: 820px; margin: 0 auto; padding: 96px 56px; }
-    .section-kicker { font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-dk); margin-bottom: 16px; }
-    .section-kicker-light { color: var(--gold); }
+    .section-kicker { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); padding: 4px 10px; border-radius: 6px; margin-bottom: 20px; }
+    .section-kicker-light { color: rgba(255,255,255,.45); border-color: rgba(255,255,255,.15); }
     .section-h2 { font-size: clamp(30px, 3.8vw, 50px); font-weight: 900; line-height: 1.05; letter-spacing: -.03em; }
 
     /* -- PROBLEM -- */
-    .problem-grid { display: grid; grid-template-columns: 280px 1fr; gap: 64px; align-items: start; }
-    .problem-label { font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); padding-top: 4px; }
-    .problem-card { border-left: 4px solid var(--gold); padding: 32px 36px; background: var(--offwhite); border-radius: 0 12px 12px 0; }
+    .problem-grid { max-width: 760px; }
+    .problem-card { border-left: 3px solid var(--gold); padding: 36px 40px; background: var(--offwhite); border-radius: 0 12px 12px 0; }
     .problem-card p { font-size: 17px; color: var(--text); line-height: 1.85; margin-bottom: 20px; }
     .problem-card p:last-child { margin-bottom: 0; }
     .problem-card strong { color: var(--dark); font-weight: 700; }
@@ -221,29 +213,6 @@
   </div>
 </section>
 
-<!-- TICKER -->
-<div class="ticker-wrap">
-  <div class="ticker-inner">
-    <span class="ticker-item">Customer Journey Framework</span>
-    <span class="ticker-item">Land & Expand Revenue</span>
-    <span class="ticker-item">GTM Roles & Responsibilities</span>
-    <span class="ticker-item">CRM Architecture</span>
-    <span class="ticker-item">Revenue Messaging</span>
-    <span class="ticker-item">AI Workflow Agents</span>
-    <span class="ticker-item">Outsourced Revenue Partner</span>
-    <span class="ticker-item">Time to Value</span>
-    <span class="ticker-item">Expansion Playbook</span>
-    <span class="ticker-item">Customer Journey Framework</span>
-    <span class="ticker-item">Land & Expand Revenue</span>
-    <span class="ticker-item">GTM Roles & Responsibilities</span>
-    <span class="ticker-item">CRM Architecture</span>
-    <span class="ticker-item">Revenue Messaging</span>
-    <span class="ticker-item">AI Workflow Agents</span>
-    <span class="ticker-item">Outsourced Revenue Partner</span>
-    <span class="ticker-item">Time to Value</span>
-    <span class="ticker-item">Expansion Playbook</span>
-  </div>
-</div>
 
 <!-- STATS -->
 <section>
@@ -275,9 +244,7 @@
 <section class="sec-white" id="problem">
   <div class="wrap">
     <div class="problem-grid">
-      <div>
-        <div class="section-kicker">The problem we solve</div>
-      </div>
+      <div class="section-kicker" style="margin-bottom:24px;">The problem we solve</div>
       <div class="problem-card">
         <p>Sales wins an account. Service delivers the work. But there's a gap between the two - with limited visibility into which accounts are thriving, which have room to grow, and which need attention before they churn. The result: <strong>customer lifetime value stays flat even as the business grows.</strong></p>
         <p>The opportunity is right there in your existing book of business. Building the infrastructure to capture it - a shared customer journey, clear ownership, and expansion playbooks - is what turns customer relationships into compounding revenue.</p>
@@ -293,9 +260,9 @@
       <svg viewBox="0 0 728 222" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;" class="funnel-svg">
         <defs>
           <style>
-            .f-head { font-family: Inter, sans-serif; font-size: 9px; font-weight: 800; letter-spacing: 2px; }
-            .f-stage { font-family: Inter, sans-serif; font-size: 7.5px; font-weight: 700; letter-spacing: 1.2px; }
-            .f-cap { font-family: Inter, sans-serif; font-size: 10px; font-weight: 600; }
+            .f-head { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 9px; font-weight: 800; letter-spacing: 2px; }
+            .f-stage { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 7.5px; font-weight: 700; letter-spacing: 1.2px; }
+            .f-cap { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10px; font-weight: 600; }
           </style>
         </defs>
         <text x="182" y="13" text-anchor="middle" class="f-head" fill="#7A6E85">LAND</text>
