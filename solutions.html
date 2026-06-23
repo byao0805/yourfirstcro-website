@@ -60,7 +60,16 @@
     .lev-card h3 { font-size: 17px; font-weight: 800; color: var(--text); margin-bottom: 20px; letter-spacing: -.01em; }
     .lev-row-lbl { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-dk); margin-bottom: 4px; }
     .lev-row-txt { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 14px; }
-    .lev-impact { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 11px; font-weight: 800; color: var(--dark2); letter-spacing: .05em; text-transform: uppercase; }
+    .lev-impact { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); }
+    .lev-kr-lbl { font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-dk); margin-bottom: 7px; }
+    .lev-kr-val { font-size: 12px; font-weight: 700; color: var(--dark2); line-height: 1.55; }
+
+    /* -- CTA CARD (fills 6th grid cell) -- */
+    .lev-card.lev-cta { background: var(--dark); display: flex; flex-direction: column; justify-content: center; }
+    .lev-card.lev-cta:hover { background: var(--dark2); }
+    .lev-cta h3 { font-size: 22px; font-weight: 900; color: #fff; letter-spacing: -.02em; line-height: 1.15; margin-bottom: 12px; }
+    .lev-cta h3 em { font-style: normal; color: var(--gold); }
+    .lev-cta p { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.7; margin-bottom: 22px; }
 
     /* -- INTRO BLOCK -- */
     .lev-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 64px; }
@@ -120,7 +129,7 @@
   <div class="page-hero-inner">
     <div class="page-kicker">Solutions</div>
     <h1>Where we create <em>leverage.</em></h1>
-    <p class="page-hero-sub">Six places where GTM infrastructure creates the most value - across messaging, the customer journey, activation, ICP, operations, and product signal.</p>
+    <p class="page-hero-sub">Six systems that move the numbers a revenue team is measured on - from first touch through expansion. Each one ties to results you can track.</p>
   </div>
 </div>
 
@@ -129,62 +138,80 @@
   <div class="wrap">
     <div class="lev-intro">
       <h2>We've seen these patterns. Here's what we build.</h2>
-      <p>These are the moments where the right infrastructure unlocks the most growth - faster time-to-value, more expansion revenue, and a team that operates with real clarity.</p>
+      <p>These are the systems that move revenue - faster deals, bigger deals, and accounts that compound after they close. Every one ties to a result you can put on a dashboard.</p>
     </div>
     <div class="lev-grid">
       <div class="lev-card">
-        <div class="lev-num">01 · Messaging</div>
-        <h3>Messaging Alignment</h3>
+        <div class="lev-num">01 · Pipeline</div>
+        <h3>Pipeline Architecture</h3>
         <div class="lev-row-lbl">What we see</div>
-        <div class="lev-row-txt">Sales pitches multiple use cases. Success only focuses on one. The customer gets a different story at every stage.</div>
+        <div class="lev-row-txt">The CRM shows a big number and the forecast is fiction. Early relationship-building and real deals sit in the same stages. Deals stall for 90 days with nobody flagging them.</div>
         <div class="lev-row-lbl">What we build</div>
-        <div class="lev-row-txt">Shared GTM messaging that aligns teams from first pitch through adoption and expansion - so the customer always knows what they bought and why it matters.</div>
-        <div class="lev-impact">Faster time-to-value · Increased expansion ARR</div>
+        <div class="lev-row-txt">Stages with clear exit criteria, a clean split between early activity and engaged deals, and a forecast leadership can trust.</div>
+        <div class="lev-impact">
+          <div class="lev-kr-lbl">Key Results</div>
+          <div class="lev-kr-val">Higher stage pass-through rates · Trackable closed-lost signals · Pipeline velocity</div>
+        </div>
       </div>
       <div class="lev-card">
-        <div class="lev-num">02 · Journey</div>
-        <h3>Customer Journey Design</h3>
+        <div class="lev-num">02 · Sales</div>
+        <h3>Sales Playbook</h3>
         <div class="lev-row-lbl">What we see</div>
-        <div class="lev-row-txt">CS is reacting to customer adoption signals with no shared playbook. Every account gets a different experience depending on who handles it.</div>
+        <div class="lev-row-txt">Every rep runs their own discovery. Value gets defended in the pricing call instead of established in the first meeting.</div>
         <div class="lev-row-lbl">What we build</div>
-        <div class="lev-row-txt">Proactive GTM playbooks that guide the customer journey from land to expand - so every team knows what comes next and when to act.</div>
-        <div class="lev-impact">LTV · Expansion revenue · CS efficiency</div>
+        <div class="lev-row-txt">A repeatable motion - discovery framework, business case, mutual action plan - so qualification happens early and value lands before procurement enters.</div>
+        <div class="lev-impact">
+          <div class="lev-kr-lbl">Key Results</div>
+          <div class="lev-kr-val">Faster speed to close · Higher average deal size · Win rate</div>
+        </div>
       </div>
       <div class="lev-card">
-        <div class="lev-num">03 · Time to Value</div>
-        <h3>Activation Ownership</h3>
+        <div class="lev-num">03 · Account Plans</div>
+        <h3>Account Plans</h3>
         <div class="lev-row-lbl">What we see</div>
-        <div class="lev-row-txt">The 60 days between "closed" and "activated" belong to everyone in theory and no one in practice. Deals slip through.</div>
+        <div class="lev-row-txt">Account plans are bloated docs nobody opens, or they're missing entirely. Reps walk in without the signals, stakeholders, or history that grow a deal.</div>
         <div class="lev-row-lbl">What we build</div>
-        <div class="lev-row-txt">A shared time-to-value framework from close to first expansion conversation - with clear owners and milestones at every step.</div>
-        <div class="lev-impact">Adoption · Expansion · Product signal</div>
+        <div class="lev-row-txt">Account plans that get to the point - surfacing buying signals, mapping stakeholders, and giving reps the next move to close and expand.</div>
+        <div class="lev-impact">
+          <div class="lev-kr-lbl">Key Results</div>
+          <div class="lev-kr-val">Higher average deal size · Stakeholder coverage · Expansion win rate</div>
+        </div>
       </div>
       <div class="lev-card">
-        <div class="lev-num">04 · ICP</div>
-        <h3>ICP Discipline</h3>
+        <div class="lev-num">04 · Activation</div>
+        <h3>Activation &amp; Time-to-Value</h3>
         <div class="lev-row-lbl">What we see</div>
-        <div class="lev-row-txt">Revenue pressure slowly expands the target market until the ICP is everyone - and the product roadmap and CS motion start splintering.</div>
+        <div class="lev-row-txt">The 60 days between closed and activated belong to everyone in theory and to nobody in practice. New revenue stalls before it ever delivers.</div>
         <div class="lev-row-lbl">What we build</div>
-        <div class="lev-row-txt">An ICP anchored to what the product was built to deliver - and the shared language to defend it as the team scales.</div>
-        <div class="lev-impact">Roadmap velocity · Core retention</div>
+        <div class="lev-row-txt">A time-to-value framework with clear owners and milestones, from close to first realized outcome.</div>
+        <div class="lev-impact">
+          <div class="lev-kr-lbl">Key Results</div>
+          <div class="lev-kr-val">Shorter time-to-first-value · Onboarding cycle time · Early retention rate</div>
+        </div>
       </div>
       <div class="lev-card">
-        <div class="lev-num">05 · Operations</div>
-        <h3>Roles &amp; Responsibilities</h3>
+        <div class="lev-num">05 · Expansion</div>
+        <h3>Expansion Playbook</h3>
         <div class="lev-row-lbl">What we see</div>
-        <div class="lev-row-txt">Roles grow reactively. The handoff zone between sales and CS becomes a gray area where revenue leaks and accountability disappears.</div>
+        <div class="lev-row-txt">Expansion happens by luck. The accounts with the most room to grow get the same attention as everyone else.</div>
         <div class="lev-row-lbl">What we build</div>
-        <div class="lev-row-txt">Roles and responsibilities anchored to the customer journey - so every function has clear ownership and nothing falls through the cracks.</div>
-        <div class="lev-impact">Accountability · Team efficiency · Customer experience</div>
+        <div class="lev-row-txt">A system that turns healthy accounts into compounding revenue, with shared signals and a clear play for every expansion moment.</div>
+        <div class="lev-impact">
+          <div class="lev-kr-lbl">Key Results</div>
+          <div class="lev-kr-val">Net revenue retention · Expansion ARR · Upsell conversion rate</div>
+        </div>
       </div>
       <div class="lev-card">
-        <div class="lev-num">06 · Product</div>
-        <h3>Product Signal</h3>
+        <div class="lev-num">06 · Operations</div>
+        <h3>GTM Roles &amp; Responsibilities</h3>
         <div class="lev-row-lbl">What we see</div>
-        <div class="lev-row-txt">Product gets competing feature requests from every direction. The roadmap gets shaped by whoever argued loudest last week.</div>
+        <div class="lev-row-txt">The team grew by hiring, not by design. It's unclear who owns pipeline generation, who owns the close, and who owns expansion. Strong performers are stuck doing work below their level.</div>
         <div class="lev-row-lbl">What we build</div>
-        <div class="lev-row-txt">A shared customer evidence layer - signal over advocacy, with decisions grounded in what customers actually do and what drives their expansion.</div>
-        <div class="lev-impact">Roadmap velocity · Product-market fit</div>
+        <div class="lev-row-txt">An objective look at the GTM org - the right roles mapped to the right responsibilities across the revenue motion, so every seat has a clear mandate and the structure matches the goal.</div>
+        <div class="lev-impact">
+          <div class="lev-kr-lbl">Key Results</div>
+          <div class="lev-kr-val">Quota capacity coverage · Rep ramp time · Productivity per head</div>
+        </div>
       </div>
     </div>
   </div>
